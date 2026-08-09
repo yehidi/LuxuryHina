@@ -36,6 +36,29 @@
   }
   $$('[data-split]').forEach(split);
 
+  /* ─────────  PHOTOGRAPHY  ─────────
+     Preload first and only insert on success, so a missing file degrades to the
+     ornamental plate underneath instead of flashing a broken-image icon. */
+  function mountPhoto(host, src, alt) {
+    if (!host || !src) return;
+    const probe = new Image();
+    probe.onload = () => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = alt || '';
+      img.className = 'photo';
+      img.decoding = 'async';
+      if (!host.classList.contains('hero-photo')) img.loading = 'lazy';
+      host.prepend(img);
+      host.classList.add('has-photo');
+    };
+    probe.src = src;
+  }
+
+  $$('[data-photo]').forEach((el) => {
+    mountPhoto(el, el.dataset.photo, el.dataset.title || '');
+  });
+
   /* ─────────  INTRO  ───────── */
   const intro = $('#intro');
   const introCount = $('#introCount');
@@ -274,6 +297,18 @@
       lbUse.setAttribute('href', '#' + f.dataset.motif);
       lbTitle.textContent = f.dataset.title;
       lbIndex.textContent = f.dataset.index;
+
+      // show the real photo when this plate has one mounted
+      const lbPlate = $('#lbPlate'), lbPhoto = $('#lbPhoto');
+      lbPhoto.textContent = '';
+      lbPlate.classList.remove('has-photo');
+      const src = f.classList.contains('has-photo') ? f.dataset.photo : null;
+      if (src) {
+        const img = document.createElement('img');
+        img.src = src; img.alt = f.dataset.title || ''; img.className = 'photo';
+        lbPhoto.appendChild(img);
+        lbPlate.classList.add('has-photo');
+      }
     }
 
     function open(k) {
