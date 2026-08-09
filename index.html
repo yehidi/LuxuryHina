@@ -6,6 +6,9 @@
 <title>LuxuryHina | הפקת חינות יוקרתיות ואירועי חינה מרוקאית</title>
 <meta name="description" content="הפקת אירועי חינה יוקרתיים בהתאמה אישית: עיצוב ותפאורה מרוקאית, תאורה, עמדות מתוקים וליווי אישי מלא — מהרעיון הראשון ועד הרגע הגדול.">
 <meta name="theme-color" content="#0f0b09">
+<!-- Applies the last-known theme before first paint, so returning visitors
+     never see a flash of the wrong theme while content.json is fetched. -->
+<script>try{document.documentElement.setAttribute('data-theme', localStorage.getItem('lh-theme') || 'candlelit');}catch(e){}</script>
 <link rel="canonical" href="https://yehidi.github.io/LuxuryHina/">
 
 <!-- Share card: this is what appears when the link is sent in WhatsApp -->
@@ -319,7 +322,7 @@
 <div class="intro" id="intro">
   <div class="intro-inner">
     <svg class="intro-mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
-    <span class="intro-word">LUXURYHINA</span>
+    <span class="intro-word" id="introWord">LUXURYHINA</span>
     <span class="intro-count" id="introCount">0</span>
   </div>
   <span class="intro-panel intro-panel-a"></span>
@@ -332,19 +335,19 @@
 <!-- ─────────────  HEADER  ───────────── -->
 <header class="header" id="header">
   <div class="shell header-inner">
-    <a href="#top" class="brand" aria-label="LuxuryHina - לראש העמוד">
+    <a href="#top" class="brand" id="brandLink" aria-label="LuxuryHina - לראש העמוד">
       <svg class="brand-mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
-      <span class="brand-name">Luxury<em>Hina</em></span>
+      <span class="brand-name"><span id="brandFirst">Luxury</span><em id="brandLast">Hina</em></span>
     </a>
     <nav class="nav" id="nav" aria-label="ניווט ראשי">
-      <a href="#about"><span>אודות</span></a>
-      <a href="#services"><span>השירותים</span></a>
-      <a href="#process"><span>תהליך</span></a>
-      <a href="#gallery"><span>גלריה</span></a>
-      <a href="#testimonials"><span>המלצות</span></a>
-      <a href="#contact"><span>צור קשר</span></a>
+      <a href="#about"><span id="navAbout">אודות</span></a>
+      <a href="#services"><span id="navServices">השירותים</span></a>
+      <a href="#process"><span id="navProcess">תהליך</span></a>
+      <a href="#gallery"><span id="navGallery">גלריה</span></a>
+      <a href="#testimonials"><span id="navTestimonials">המלצות</span></a>
+      <a href="#contact"><span id="navContact">צור קשר</span></a>
     </nav>
-    <a href="#contact" class="btn btn-ghost header-cta magnetic"><span>בואו נדבר</span></a>
+    <a href="#contact" class="btn btn-ghost header-cta magnetic"><span id="headerCta">בואו נדבר</span></a>
     <button class="burger" id="burger" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="nav">
       <span></span><span></span>
     </button>
@@ -355,7 +358,7 @@
 
 <!-- ─────────────  HERO  ───────────── -->
 <section class="hero" id="top">
-  <div class="hero-photo" data-video="videos/hero.mp4" data-photo="images/IMG_4621.jpeg" aria-hidden="true"></div>
+  <div class="hero-photo" id="heroPhoto" aria-hidden="true"></div>
   <div class="hero-light" aria-hidden="true"></div>
   <div class="hero-mandala" aria-hidden="true" data-parallax="0.03">
     <svg viewBox="0 0 400 400"><use href="#orn-mandala"/></svg>
@@ -364,13 +367,13 @@
   <div class="hero-frame" aria-hidden="true" data-parallax="0.014"></div>
 
   <div class="shell hero-inner">
-    <p class="eyebrow hero-eyebrow"><b>01</b><i></i>בוטיק הפקות חינה</p>
-    <h1 class="hero-title" data-split>חינה יוקרתית</h1>
-    <p class="hero-lede" data-split>בהתאמה אישית, לחלום שלכם</p>
-    <p class="hero-sub fade" style="--d:.9s">עיצוב, תפאורה ואווירה שמתוכננים בקפידה — וליווי אישי מהרעיון הראשון ועד הרגע הגדול.</p>
+    <p class="eyebrow hero-eyebrow"><b id="heroEyebrowNum">01</b><i></i><span id="heroEyebrow">בוטיק הפקות חינה</span></p>
+    <h1 class="hero-title" id="heroTitle" data-split>חינה יוקרתית</h1>
+    <p class="hero-lede" id="heroLede" data-split>בהתאמה אישית, לחלום שלכם</p>
+    <p class="hero-sub fade" id="heroSub" style="--d:.9s">עיצוב, תפאורה ואווירה שמתוכננים בקפידה — וליווי אישי מהרעיון הראשון ועד הרגע הגדול.</p>
     <div class="hero-cta fade" style="--d:1.02s">
-      <a href="https://wa.me/972502883996" target="_blank" rel="noopener" class="btn btn-gold magnetic"><span>תיאום פגישת ייעוץ</span></a>
-      <a href="#gallery" class="arrow-link magnetic"><span>לצפייה בעבודות</span><i aria-hidden="true">←</i></a>
+      <a href="https://wa.me/972502883996" id="heroCtaPrimary" target="_blank" rel="noopener" class="btn btn-gold magnetic"><span id="heroCtaPrimaryLabel">תיאום פגישת ייעוץ</span></a>
+      <a href="#gallery" class="arrow-link magnetic"><span id="heroCtaSecondaryLabel">לצפייה בעבודות</span><i aria-hidden="true">←</i></a>
     </div>
   </div>
 
@@ -389,7 +392,7 @@
 <!-- ─────────────  ABOUT  ───────────── -->
 <section class="about" id="about">
   <div class="shell about-grid">
-    <div class="panel reveal" data-photo="images/IMG_4631.jpeg" aria-hidden="true" data-parallax="0.02">
+    <div class="panel reveal" id="aboutPanel" aria-hidden="true" data-parallax="0.02">
       <div class="panel-glow"></div>
       <div class="panel-pattern"></div>
       <svg class="panel-motif" viewBox="0 0 400 400"><use href="#orn-mandala"/></svg>
@@ -398,15 +401,10 @@
     </div>
 
     <div class="about-body">
-      <p class="eyebrow reveal"><b>02</b><i></i>מי אנחנו</p>
-      <h2 class="reveal" data-split>אירוע חינה הוא סיפור.<br>אנחנו כאן לספר אותו נכון.</h2>
-      <p class="reveal" style="--d:.1s">אנחנו צוות מפיקים ומעצבים המתמחה באירועי חינה יוקרתיים, המשלבים מסורת עשירה עם עיצוב עכשווי ומדויק. כל אירוע מתחיל בהקשבה — לסיפור המשפחה, למנהגים, לצבעים ולחלום שלכם.</p>
-      <p class="reveal" style="--d:.18s">מתפאורה מרהיבה ותאורה אווירתית, דרך עמדות מזון וריחות מסורתיים, ועד לליווי צמוד בכל שלב — אנחנו דואגים שתוכלו פשוט ליהנות מהרגע.</p>
-      <ul class="stats reveal" style="--d:.26s">
-        <li><strong class="foil" data-count="150" data-suffix="+">0</strong><span>אירועים מופקים</span></li>
-        <li><strong class="foil" data-count="10">0</strong><span>שנות ניסיון</span></li>
-        <li><strong class="foil" data-count="100" data-suffix="%">0</strong><span>התאמה אישית</span></li>
-      </ul>
+      <p class="eyebrow reveal"><b id="aboutEyebrowNum">02</b><i></i><span id="aboutEyebrow">מי אנחנו</span></p>
+      <h2 class="reveal" id="aboutHeading" data-split>אירוע חינה הוא סיפור.<br>אנחנו כאן לספר אותו נכון.</h2>
+      <div id="aboutParagraphs"></div>
+      <ul class="stats reveal" id="aboutStats" style="--d:.26s"></ul>
     </div>
   </div>
 </section>
@@ -415,54 +413,11 @@
 <section class="services" id="services">
   <div class="shell">
     <header class="sec-head">
-      <p class="eyebrow reveal"><b>03</b><i></i>מה כלול</p>
-      <h2 class="reveal" data-split>השירותים שלנו</h2>
+      <p class="eyebrow reveal"><b id="servicesEyebrowNum">03</b><i></i><span id="servicesEyebrow">מה כלול</span></p>
+      <h2 class="reveal" id="servicesHeading" data-split>השירותים שלנו</h2>
     </header>
 
-    <div class="rows">
-      <article class="row reveal">
-        <span class="row-ghost" aria-hidden="true">01</span>
-        <span class="row-num">01</span>
-        <h3>עיצוב ותפאורה</h3>
-        <p>עיצוב חלל מלא הכולל בדים, כריות, פנסים, שטיחים ופרטי נוי בסגנון מסורתי־מודרני.</p>
-        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-boteh"/></svg>
-      </article>
-      <article class="row reveal">
-        <span class="row-ghost" aria-hidden="true">02</span>
-        <span class="row-num">02</span>
-        <h3>קונספט אישי</h3>
-        <p>בניית קונספט צבעוני וייחודי המותאם לסיפור המשפחה ולטעם האישי שלכם.</p>
-        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
-      </article>
-      <article class="row reveal">
-        <span class="row-ghost" aria-hidden="true">03</span>
-        <span class="row-num">03</span>
-        <h3>קייטרינג ומתוקים</h3>
-        <p>עמדות פירות, מתוקים מסורתיים ותה בהתאמה מלאה לאווירת האירוע.</p>
-        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-vine"/></svg>
-      </article>
-      <article class="row reveal">
-        <span class="row-ghost" aria-hidden="true">04</span>
-        <span class="row-num">04</span>
-        <h3>הפקה מלאה באירוע</h3>
-        <p>ניהול לוגיסטי, תיאום ספקים וליווי צמוד ביום האירוע — כדי שתהיו נוכחים ברגע, לא בפרטים.</p>
-        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-mandala"/></svg>
-      </article>
-      <article class="row reveal">
-        <span class="row-ghost" aria-hidden="true">05</span>
-        <span class="row-num">05</span>
-        <h3>תאורה ואווירה</h3>
-        <p>תכנון תאורה שמדגיש כל פינה ויוצר אווירה חמה, קסומה ומיוחדת.</p>
-        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
-      </article>
-      <article class="row reveal">
-        <span class="row-ghost" aria-hidden="true">06</span>
-        <span class="row-num">06</span>
-        <h3>ליווי אישי מהיום הראשון</h3>
-        <p>פגישת ייעוץ, הצעת עיצוב מותאמת, ותיאום מלא עד לרגע האירוע עצמו.</p>
-        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-boteh"/></svg>
-      </article>
-    </div>
+    <div class="rows" id="servicesRows"></div>
   </div>
 </section>
 
@@ -470,33 +425,12 @@
 <section class="process" id="process">
   <div class="shell">
     <header class="sec-head">
-      <p class="eyebrow reveal"><b>04</b><i></i>איך זה עובד</p>
-      <h2 class="reveal" data-split>מהפנייה הראשונה ועד הרגע הגדול</h2>
-      <p class="reveal" style="--d:.08s">בלי הפתעות ובלי עומס — ארבעה שלבים ברורים, ואנחנו איתכם בכל אחד מהם.</p>
+      <p class="eyebrow reveal"><b id="processEyebrowNum">04</b><i></i><span id="processEyebrow">איך זה עובד</span></p>
+      <h2 class="reveal" id="processHeading" data-split>מהפנייה הראשונה ועד הרגע הגדול</h2>
+      <p class="reveal" id="processSub" style="--d:.08s">בלי הפתעות ובלי עומס — ארבעה שלבים ברורים, ואנחנו איתכם בכל אחד מהם.</p>
     </header>
 
-    <ol class="steps">
-      <li class="step reveal">
-        <span class="step-num">01</span>
-        <h3>שיחת היכרות</h3>
-        <p>מדברים על התאריך, מספר האורחים, המקום והחלום שלכם. בסוף השיחה תדעו בדיוק מה אפשרי ומה זה כולל.</p>
-      </li>
-      <li class="step reveal" style="--d:.08s">
-        <span class="step-num">02</span>
-        <h3>הצעת עיצוב אישית</h3>
-        <p>בונים לכם קונספט מותאם — צבעים, תפאורה, תאורה ועמדות — יחד עם הצעת מחיר מפורטת וברורה.</p>
-      </li>
-      <li class="step reveal" style="--d:.16s">
-        <span class="step-num">03</span>
-        <h3>תכנון והפקה</h3>
-        <p>מתאמים ספקים, לוחות זמנים ולוגיסטיקה. אתם מקבלים עדכונים לאורך הדרך ולא צריכים לרדוף אחרי אף אחד.</p>
-      </li>
-      <li class="step reveal" style="--d:.24s">
-        <span class="step-num">04</span>
-        <h3>יום האירוע</h3>
-        <p>אנחנו מגיעים מוקדם, מקימים הכל ונשארים עד הסוף. אתם רק צריכים להגיע וליהנות.</p>
-      </li>
-    </ol>
+    <ol class="steps" id="processSteps"></ol>
   </div>
 </section>
 
@@ -504,85 +438,13 @@
 <section class="gallery" id="gallery">
   <div class="shell">
     <header class="sec-head">
-      <p class="eyebrow reveal"><b>05</b><i></i>עבודות נבחרות</p>
-      <h2 class="reveal" data-split>גלריה</h2>
+      <p class="eyebrow reveal"><b id="galleryEyebrowNum">05</b><i></i><span id="galleryEyebrow">עבודות נבחרות</span></p>
+      <h2 class="reveal" id="galleryHeading" data-split>גלריה</h2>
     </header>
 
-    <div class="plates" id="plates">
-      <figure class="plate tall reveal">
-        <button class="plate-face" type="button" data-motif="orn-mandala" data-tone="a" data-title="אוהל החינה" data-index="01" data-video="videos/gallery-01.mp4" data-photo="images/IMG_4621.jpeg">
-          <span class="plate-bg tone-a"></span>
-          <span class="plate-pat pat-girih"></span>
-          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-mandala"/></svg></span>
-          <span class="plate-sheen"></span>
-          <span class="plate-edge"></span>
-          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
-        </button>
-        <figcaption><b>01</b> אוהל החינה</figcaption>
-      </figure>
+    <div class="plates" id="plates"></div>
 
-      <figure class="plate reveal" style="--d:.06s">
-        <button class="plate-face" type="button" data-motif="orn-boteh" data-tone="b" data-title="עמדת מתוקים ומזכרות" data-index="02" data-video="videos/gallery-02.mp4" data-photo="images/IMG_4623.jpeg">
-          <span class="plate-bg tone-b"></span>
-          <span class="plate-pat pat-ogee"></span>
-          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-boteh"/></svg></span>
-          <span class="plate-sheen"></span>
-          <span class="plate-edge"></span>
-          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
-        </button>
-        <figcaption><b>02</b> עמדת מתוקים ומזכרות</figcaption>
-      </figure>
-
-      <figure class="plate reveal" style="--d:.12s">
-        <button class="plate-face" type="button" data-motif="orn-rosette" data-tone="a" data-title="כניסה ותפאורה" data-index="03" data-video="videos/gallery-03.mp4" data-photo="images/IMG_4624.jpeg">
-          <span class="plate-bg tone-a"></span>
-          <span class="plate-pat pat-scallop"></span>
-          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-rosette"/></svg></span>
-          <span class="plate-sheen"></span>
-          <span class="plate-edge"></span>
-          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
-        </button>
-        <figcaption><b>03</b> כניסה ותפאורה</figcaption>
-      </figure>
-
-      <figure class="plate tall reveal" style="--d:.18s">
-        <button class="plate-face" type="button" data-motif="orn-vine" data-tone="b" data-title="מופע וחוויה" data-index="04" data-video="videos/gallery-04.mp4" data-photo="images/IMG_4625.jpeg">
-          <span class="plate-bg tone-b"></span>
-          <span class="plate-pat pat-girih"></span>
-          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-vine"/></svg></span>
-          <span class="plate-sheen"></span>
-          <span class="plate-edge"></span>
-          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
-        </button>
-        <figcaption><b>04</b> מופע וחוויה</figcaption>
-      </figure>
-
-      <figure class="plate tall reveal" style="--d:.24s">
-        <button class="plate-face" type="button" data-motif="orn-mandala" data-tone="b" data-title="מתחם ישיבה" data-index="05" data-video="videos/gallery-05.mp4" data-photo="images/IMG_4622.jpeg">
-          <span class="plate-bg tone-b"></span>
-          <span class="plate-pat pat-ogee"></span>
-          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-mandala"/></svg></span>
-          <span class="plate-sheen"></span>
-          <span class="plate-edge"></span>
-          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
-        </button>
-        <figcaption><b>05</b> מתחם ישיבה</figcaption>
-      </figure>
-
-      <figure class="plate reveal" style="--d:.3s">
-        <button class="plate-face" type="button" data-motif="orn-boteh" data-tone="a" data-title="רגעים מהאירוע" data-index="06" data-video="videos/gallery-06.mp4" data-photo="images/IMG_4627.jpeg">
-          <span class="plate-bg tone-a"></span>
-          <span class="plate-pat pat-scallop"></span>
-          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-boteh"/></svg></span>
-          <span class="plate-sheen"></span>
-          <span class="plate-edge"></span>
-          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
-        </button>
-        <figcaption><b>06</b> רגעים מהאירוע</figcaption>
-      </figure>
-    </div>
-
-    <p class="plates-note reveal">מתוך אירועים שהפקנו. לצפייה בעוד עבודות — <a href="https://www.instagram.com/luxury_hina" target="_blank" rel="noopener">@luxury_hina</a></p>
+    <p class="plates-note reveal" id="galleryNote"></p>
   </div>
 </section>
 
@@ -591,25 +453,12 @@
   <svg class="quotes-orn" viewBox="0 0 400 400" aria-hidden="true" data-parallax="0.025"><use href="#orn-mandala"/></svg>
   <div class="shell">
     <header class="sec-head">
-      <p class="eyebrow reveal"><b>06</b><i></i>לקוחות ממליצים</p>
-      <h2 class="reveal" data-split>מה אומרים עלינו</h2>
+      <p class="eyebrow reveal"><b id="testimonialsEyebrowNum">06</b><i></i><span id="testimonialsEyebrow">לקוחות ממליצים</span></p>
+      <h2 class="reveal" id="testimonialsHeading" data-split>מה אומרים עלינו</h2>
     </header>
 
     <div class="quote-box reveal">
-      <div class="quote-track" id="quoteTrack">
-        <blockquote class="quote is-on">
-          <p>האירוע היה מעבר לכל דמיון — כל פרט חושב עד הסוף. תודה שהפכתם את היום שלנו לקסום כל כך.</p>
-          <cite>משפחת כהן</cite>
-        </blockquote>
-        <blockquote class="quote">
-          <p>מקצועיות, טעם עיצובי מדהים וזמינות מלאה לאורך כל התהליך. ממליצים בחום.</p>
-          <cite>משפחת לוי</cite>
-        </blockquote>
-        <blockquote class="quote">
-          <p>הצוות הבין בדיוק את החלום שלנו והפך אותו למציאות. אירוע שכל האורחים עדיין מדברים עליו.</p>
-          <cite>משפחת אזולאי</cite>
-        </blockquote>
-      </div>
+      <div class="quote-track" id="quoteTrack"></div>
       <div class="quote-nav" id="quoteNav" role="tablist" aria-label="בחירת המלצה"></div>
     </div>
   </div>
@@ -620,36 +469,11 @@
 <section class="faq" id="faq">
   <div class="shell">
     <header class="sec-head">
-      <p class="eyebrow reveal"><b>07</b><i></i>שאלות נפוצות</p>
-      <h2 class="reveal" data-split>כל מה שכדאי לדעת</h2>
+      <p class="eyebrow reveal"><b id="faqEyebrowNum">07</b><i></i><span id="faqEyebrow">שאלות נפוצות</span></p>
+      <h2 class="reveal" id="faqHeading" data-split>כל מה שכדאי לדעת</h2>
     </header>
 
-    <div class="faq-list">
-      <details class="faq-item reveal">
-        <summary><span>כמה זמן מראש כדאי לפנות?</span><svg class="faq-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-plus"/></svg></summary>
-        <div class="faq-body"><p>ככל שמוקדם יותר — כך יש יותר גמישות בתאריכים ובספקים. בעונה החמה התאריכים נתפסים מהר, אז שווה לפנות ברגע שיש תאריך משוער, גם אם עוד לא הכל סגור.</p></div>
-      </details>
-      <details class="faq-item reveal" style="--d:.05s">
-        <summary><span>כמה זה עולה?</span><svg class="faq-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-plus"/></svg></summary>
-        <div class="faq-body"><p>המחיר נבנה לפי היקף האירוע — מספר האורחים, גודל החלל, היקף התפאורה והעמדות. אחרי שיחת היכרות קצרה נשלח הצעת מחיר מפורטת ושקופה, בלי הפתעות בהמשך.</p></div>
-      </details>
-      <details class="faq-item reveal" style="--d:.1s">
-        <summary><span>מה בדיוק כלול בהפקה?</span><svg class="faq-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-plus"/></svg></summary>
-        <div class="faq-body"><p>אפשר לקחת הכל או רק חלק. הפקה מלאה כוללת עיצוב ותפאורה, תאורה, עמדות מתוקים וקייטרינג, תיאום ספקים וליווי צמוד ביום האירוע. אפשר גם רק עיצוב ותפאורה — נתאים לפי מה שצריך.</p></div>
-      </details>
-      <details class="faq-item reveal" style="--d:.15s">
-        <summary><span>אתם מגיעים לכל אזור בארץ?</span><svg class="faq-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-plus"/></svg></summary>
-        <div class="faq-body"><p>כן, אנחנו מפיקים אירועים ברחבי הארץ. באזורים מרוחקים ייתכן תוספת הגעה שתופיע מראש ובשקיפות בהצעת המחיר.</p></div>
-      </details>
-      <details class="faq-item reveal" style="--d:.2s">
-        <summary><span>אפשר להתאים את העיצוב למנהגים של המשפחה?</span><svg class="faq-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-plus"/></svg></summary>
-        <div class="faq-body"><p>בהחלט — זה בדיוק הלב של מה שאנחנו עושים. מרוקאי, תימני, כורדי או שילוב משלכם: אנחנו מקשיבים לסיפור המשפחה ובונים סביבו את העיצוב, הצבעים והפרטים.</p></div>
-      </details>
-      <details class="faq-item reveal" style="--d:.25s">
-        <summary><span>יש לכם אוהל ותפאורה משלכם?</span><svg class="faq-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-plus"/></svg></summary>
-        <div class="faq-body"><p>כן. יש לנו מלאי תפאורה, אוהלים, שטיחים, פופים, פמוטים ופרטי נוי — כך שהעיצוב נבנה מתוך מה שראיתם בגלריה, ולא מתמונות שאי אפשר לממש.</p></div>
-      </details>
-    </div>
+    <div class="faq-list" id="faqList"></div>
   </div>
 </section>
 
@@ -657,35 +481,10 @@
 <section class="contact" id="contact">
   <div class="shell contact-grid">
     <div class="contact-side">
-      <p class="eyebrow reveal"><b>08</b><i></i>בואו נתחיל לתכנן</p>
-      <h2 class="reveal" data-split>נדבר על האירוע שלכם?</h2>
-      <p class="reveal" style="--d:.08s">השאירו פרטים ונחזור אליכם בהקדם — או פשוט שלחו הודעה בוואטסאפ, זו הדרך המהירה ביותר.</p>
-      <ul class="channels reveal" style="--d:.16s">
-        <li>
-          <a class="ch" href="https://wa.me/972502883996" target="_blank" rel="noopener" data-wa-link>
-            <span class="ch-ic ch-wa"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-whatsapp"/></svg></span>
-            <span class="ch-txt"><b>וואטסאפ</b><em>הדרך המהירה ביותר להגיע אלינו</em></span>
-          </a>
-        </li>
-        <li>
-          <a class="ch" href="tel:+972502883996">
-            <span class="ch-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg></span>
-            <span class="ch-txt"><b dir="ltr">050-288-3996</b><em>זמינים בשעות הפעילות</em></span>
-          </a>
-        </li>
-        <li>
-          <a class="ch" href="mailto:info@luxuryhina.co.il">
-            <span class="ch-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-mail"/></svg></span>
-            <span class="ch-txt"><b dir="ltr">info@luxuryhina.co.il</b><em>לפניות ומידע נוסף</em></span>
-          </a>
-        </li>
-        <li>
-          <a class="ch" href="https://www.instagram.com/luxury_hina" target="_blank" rel="noopener">
-            <span class="ch-ic ch-ig"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-instagram"/></svg></span>
-            <span class="ch-txt"><b dir="ltr">@luxury_hina</b><em>עוד עבודות ורגעים מאירועים</em></span>
-          </a>
-        </li>
-      </ul>
+      <p class="eyebrow reveal"><b id="contactEyebrowNum">08</b><i></i><span id="contactEyebrow">בואו נתחיל לתכנן</span></p>
+      <h2 class="reveal" id="contactHeading" data-split>נדבר על האירוע שלכם?</h2>
+      <p class="reveal" id="contactSub" style="--d:.08s">השאירו פרטים ונחזור אליכם בהקדם — או פשוט שלחו הודעה בוואטסאפ, זו הדרך המהירה ביותר.</p>
+      <ul class="channels reveal" style="--d:.16s" id="contactChannels"></ul>
     </div>
 
     <form class="form reveal" style="--d:.1s" id="form" novalidate>
@@ -733,14 +532,8 @@
 <footer class="footer">
   <div class="shell footer-inner">
     <svg class="footer-mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
-    <p>© <span id="year"></span> LuxuryHina — הפקת חינות יוקרתיות</p>
-    <ul class="social" aria-label="הרשתות החברתיות שלנו">
-      <li><a href="https://wa.me/972502883996" target="_blank" rel="noopener" aria-label="וואטסאפ" data-wa-link><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-whatsapp"/></svg></a></li>
-      <li><a href="https://www.instagram.com/luxury_hina" target="_blank" rel="noopener" aria-label="אינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-instagram"/></svg></a></li>
-      <li><a href="https://www.facebook.com/share/19AWW7qJVB/" target="_blank" rel="noopener" aria-label="פייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-facebook"/></svg></a></li>
-      <li><a href="tel:+972502883996" aria-label="טלפון"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg></a></li>
-      <li><a href="mailto:info@luxuryhina.co.il" aria-label="אימייל"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-mail"/></svg></a></li>
-    </ul>
+    <p>© <span id="year"></span> <span id="footerCopyright">LuxuryHina — הפקת חינות יוקרתיות</span></p>
+    <ul class="social" aria-label="הרשתות החברתיות שלנו" id="footerSocial"></ul>
     <a href="#top" class="to-top">חזרה למעלה ↑</a>
   </div>
 </footer>
@@ -762,7 +555,7 @@
   </figure>
 </div>
 
-<a class="wa-float" id="waFloat" href="https://wa.me/972502883996" target="_blank" rel="noopener" data-wa-link aria-label="שליחת הודעה בוואטסאפ">
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" data-wa-link aria-label="שליחת הודעה בוואטסאפ">
   <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-whatsapp"/></svg>
   <span class="wa-float-txt">דברו איתנו</span>
 </a>
