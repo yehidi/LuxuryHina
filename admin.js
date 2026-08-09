@@ -29,7 +29,7 @@
     about: { eyebrowNum: '02', eyebrow: 'מי אנחנו', heading: 'אירוע חינה הוא סיפור.\nאנחנו כאן לספר אותו נכון.', paragraphs: [], photo: '', stats: [{ value: 150, suffix: '+', label: 'אירועים מופקים' }, { value: 10, suffix: '', label: 'שנות ניסיון' }, { value: 100, suffix: '%', label: 'התאמה אישית' }] },
     services: { eyebrowNum: '03', eyebrow: 'מה כלול', heading: 'השירותים שלנו', items: [] },
     process: { eyebrowNum: '04', eyebrow: 'איך זה עובד', heading: '', sub: '', steps: [{ title: '', text: '' }, { title: '', text: '' }, { title: '', text: '' }, { title: '', text: '' }] },
-    gallery: { eyebrowNum: '05', eyebrow: 'עבודות נבחרות', heading: 'גלריה', note: 'מתוך אירועים שהפקנו. לצפייה בעוד עבודות — {instagram}', items: [] },
+    gallery: { eyebrowNum: '05', eyebrow: 'עבודות נבחרות', heading: 'גלריה', note: 'מתוך אירועים שהפקנו.', items: [] },
     testimonials: { eyebrowNum: '06', eyebrow: 'לקוחות ממליצים', heading: 'מה אומרים עלינו', items: [] },
     faq: { eyebrowNum: '07', eyebrow: 'שאלות נפוצות', heading: 'כל מה שכדאי לדעת', items: [] },
     contact: { eyebrowNum: '08', eyebrow: 'בואו נתחיל לתכנן', heading: 'נדבר על האירוע שלכם?', sub: '', whatsappNote: '', phoneNote: '', emailNote: '', instagramNote: '', whatsappMessageGreeting: 'היי, אשמח לקבל פרטים על הפקת חינה 🙂' }
@@ -643,7 +643,7 @@
         <label class="field"><span>מספר סקציה (05)</span><input type="text" data-bind="gallery.eyebrowNum" style="max-width:100px;"></label>
         <label class="field"><span>תווית עליונה</span><input type="text" data-bind="gallery.eyebrow"></label>
         <label class="field"><span>כותרת</span><input type="text" data-bind="gallery.heading"></label>
-        <label class="field"><span>הערה מתחת לגלריה (מכיל {instagram})</span><input type="text" data-bind="gallery.note"></label>
+        <label class="field"><span>משפט קצר מתחת לגלריה (הקישור לאינסטגרם מתווסף אוטומטית)</span><input type="text" data-bind="gallery.note"></label>
       </div>`);
     wireStaticFields(container);
     buildListSection({

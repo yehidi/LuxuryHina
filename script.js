@@ -75,7 +75,7 @@
     },
     gallery: {
       eyebrowNum: '05', eyebrow: 'עבודות נבחרות', heading: 'גלריה',
-      note: 'מתוך אירועים שהפקנו. לצפייה בעוד עבודות — {instagram}',
+      note: 'מתוך אירועים שהפקנו.',
       items: [
         { title: 'אוהל החינה', photo: 'images/IMG_4621.jpeg', video: 'videos/gallery-01.mp4', tall: true,  motif: 'orn-mandala', tone: 'a', pattern: 'pat-girih' },
         { title: 'עמדת מתוקים ומזכרות', photo: 'images/IMG_4623.jpeg', video: 'videos/gallery-02.mp4', tall: false, motif: 'orn-boteh',   tone: 'b', pattern: 'pat-ogee' },
@@ -263,10 +263,12 @@
         </button>
         <figcaption><b>${pad2(i + 1)}</b> ${esc(it.title)}</figcaption>
       </figure>`).join('');
-    $('#galleryNote').innerHTML = esc(g.note).replace(
-      '{instagram}',
-      `<a href="${esc(b.instagramUrl)}" target="_blank" rel="noopener">${esc(b.instagramHandle)}</a>`
-    );
+    $('#galleryNote').innerHTML = `
+      <p class="plates-note">${esc(g.note)}</p>
+      <a class="ig-chip" href="${esc(b.instagramUrl)}" target="_blank" rel="noopener">
+        <span class="ig-chip-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-instagram"/></svg></span>
+        <span>לצפייה בעוד עבודות <b>${esc(b.instagramHandle)}</b></span>
+      </a>`;
   }
 
   function renderTestimonials(content) {
@@ -506,14 +508,28 @@
 
     const burger = $('#burger');
     const nav = $('#nav');
-    burger.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', String(open));
-    });
-    $$('a', nav).forEach((a) => a.addEventListener('click', () => {
+    function closeNav() {
       nav.classList.remove('is-open');
       burger.setAttribute('aria-expanded', 'false');
-    }));
+      document.body.classList.remove('nav-open');
+    }
+    function openNav() {
+      nav.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('nav-open');
+    }
+    burger.addEventListener('click', () => {
+      if (nav.classList.contains('is-open')) closeNav(); else openNav();
+    });
+    $$('a', nav).forEach((a) => a.addEventListener('click', closeNav));
+    document.addEventListener('click', (e) => {
+      if (!nav.classList.contains('is-open')) return;
+      if (nav.contains(e.target) || burger.contains(e.target)) return;
+      closeNav();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
+    });
   }
 
   /* ─────────  BOKEH (candlelight depth)  ───────── */
