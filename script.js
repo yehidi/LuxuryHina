@@ -147,6 +147,12 @@
   }
 
   async function resolveContent() {
+    // The admin panel drops unsaved edits here (same-origin sessionStorage)
+    // so it can preview them live, in a real tab, before publishing.
+    try {
+      const preview = sessionStorage.getItem('lh-preview-content');
+      if (preview) return normalize(mergeContent(DEFAULT_CONTENT, JSON.parse(preview)));
+    } catch (e) {}
     try {
       const res = await fetch('content.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('no content.json (' + res.status + ')');

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>פאנל ניהול | LuxuryHina</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230f0b09'/%3E%3Cg fill='none' stroke='%23dcb978' stroke-width='1.1'%3E%3Ccircle cx='12' cy='12' r='7'/%3E%3Cpath d='M12 5v14M5 12h14M7 7l10 10M17 7L7 17'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ═══════════════  LOGIN SCREEN  ═══════════════ -->
+<section id="loginScreen" class="login">
+  <form id="loginForm" class="login-card" autocomplete="off">
+    <div class="login-brand">Luxury<em>Hina</em><span>פאנל ניהול</span></div>
+
+    <h1>התחברות</h1>
+    <p class="login-lede">כדי לערוך את התוכן והעיצוב של האתר, יש להתחבר עם טוקן גישה אישי מ-GitHub.</p>
+
+    <label class="field">
+      <span>טוקן גישה (Personal Access Token)</span>
+      <input id="tokenInput" type="password" placeholder="ghp_••••••••••••••••••••" autocomplete="off" spellcheck="false">
+    </label>
+    <p id="loginError" class="login-error" hidden></p>
+
+    <button type="submit" id="loginBtn" class="btn-primary">
+      <span class="btn-label">התחבר</span>
+      <span class="btn-spin" hidden></span>
+    </button>
+
+    <details class="login-help">
+      <summary>איך יוצרים טוקן? ולמה זה בטוח?</summary>
+      <div class="login-help-body">
+        <p><b>ליצירת טוקן חדש (פעם ראשונה בלבד):</b></p>
+        <ol>
+          <li>היכנסו לכתובת: <code>github.com/settings/personal-access-tokens/new</code></li>
+          <li>תחת <b>Repository access</b> בחרו <b>Only select repositories</b> ובחרו את <code>LuxuryHina</code> בלבד.</li>
+          <li>תחת <b>Permissions → Repository permissions</b> אתרו <b>Contents</b> ושנו ל-<b>Read and write</b>.</li>
+          <li>לחצו <b>Generate token</b> והעתיקו את הטוקן שמתחיל ב-<code>github_pat_</code>.</li>
+          <li>הדביקו אותו כאן ולחצו התחבר.</li>
+        </ol>
+        <p><b>למה זה בטוח:</b> הטוקן נשמר <b>רק בדפדפן שלכם</b> (על המחשב הזה בלבד) ואף פעם לא נשלח לשום שרת חוץ מ-GitHub עצמו. אם תגדירו אותו כמומלץ למעלה, הוא יכול לגעת <b>רק</b> באתר הזה — לא בשום דבר אחר בחשבון שלכם. אפשר תמיד לבטל אותו דרך אותו עמוד ב-GitHub (כפתור Delete).</p>
+      </div>
+    </details>
+  </form>
+</section>
+
+<!-- ═══════════════  APP SHELL  ═══════════════ -->
+<div id="app" class="app" hidden>
+
+  <header class="topbar">
+    <div class="topbar-brand">Luxury<em>Hina</em><span>פאנל ניהול</span></div>
+    <div class="topbar-status">
+      <span id="statusDot" class="status-dot"></span>
+      <span id="statusText">כל השינויים פורסמו</span>
+    </div>
+    <div class="topbar-actions">
+      <button id="previewBtn" type="button" class="btn-ghost" title="פותח את האתר בטאב חדש עם השינויים שלך, בלי לפרסם">תצוגה מקדימה</button>
+      <button id="publishBtn" type="button" class="btn-primary" disabled>
+        <span class="btn-label">פרסום שינויים</span>
+        <span class="btn-spin" hidden></span>
+      </button>
+      <button id="logoutBtn" type="button" class="btn-text">התנתקות</button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <nav class="sidebar" id="sidebar">
+      <button class="side-item" data-section="theme">🎨 עיצוב ותבנית</button>
+      <button class="side-item" data-section="business">🏢 פרטי העסק</button>
+      <button class="side-item" data-section="nav">🧭 תפריט ניווט</button>
+      <button class="side-item" data-section="hero">🖼️ עמוד הבית</button>
+      <button class="side-item" data-section="about">📖 אודות</button>
+      <button class="side-item" data-section="services">✨ שירותים</button>
+      <button class="side-item" data-section="process">🔢 תהליך העבודה</button>
+      <button class="side-item" data-section="gallery">🖼️ גלריה</button>
+      <button class="side-item" data-section="testimonials">💬 המלצות</button>
+      <button class="side-item" data-section="faq">❓ שאלות נפוצות</button>
+      <button class="side-item" data-section="contact">📞 יצירת קשר</button>
+    </nav>
+
+    <main class="editor" id="editor">
+      <!-- sections injected by admin.js -->
+    </main>
+  </div>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <div id="publishModal" class="modal" hidden>
+    <div class="modal-card">
+      <h2>מפרסם שינויים…</h2>
+      <ol id="publishSteps" class="publish-steps"></ol>
+      <button id="publishCloseBtn" type="button" class="btn-primary" hidden>סגירה</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
