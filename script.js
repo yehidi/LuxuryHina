@@ -337,6 +337,29 @@
     track.addEventListener('mouseleave', start);
   }
 
+  /* ─────────  FLOATING WHATSAPP  ─────────
+     Retire the bubble once the footer is on screen: it would otherwise sit on
+     top of the footer's own links, and the footer already offers WhatsApp. */
+  const waFloat = $('#waFloat');
+  const footerEl = $('.footer');
+  if (waFloat && footerEl && 'IntersectionObserver' in window) {
+    const fo = new IntersectionObserver((entries) => {
+      entries.forEach((e) => waFloat.classList.toggle('is-tucked', e.isIntersecting));
+    }, { threshold: 0.08 });
+    fo.observe(footerEl);
+  }
+
+  /* ─────────  FAQ  ─────────
+     Native <details> keeps this accessible and keyboard-friendly; this only
+     adds the accordion behaviour of closing the previously open answer. */
+  const faqItems = $$('.faq-item');
+  faqItems.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (!item.open) return;
+      faqItems.forEach((other) => { if (other !== item) other.open = false; });
+    });
+  });
+
   /* ─────────  LIGHTBOX  ───────── */
   const lb = $('#lb');
   const faces = $$('.plate-face');
@@ -452,12 +475,37 @@
       });
     });
 
+    /* There is no backend. Rather than pretend the form was "sent" and silently
+       drop the lead, we hand the details off to WhatsApp as a pre-filled
+       message — so enquiries actually arrive. The number is read from the
+       existing WhatsApp links, keeping one source of truth in the markup. */
+    function waNumber() {
+      const link = document.querySelector('[data-wa-link]');
+      const m = link && link.getAttribute('href').match(/wa\.me\/(\d+)/);
+      return m ? m[1] : null;
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const ok = Object.keys(rules).map(check).every(Boolean);
       if (!ok) { note.textContent = 'נא לבדוק את השדות המסומנים.'; return; }
-      // NOTE: no backend yet — see README for wiring this to a real endpoint.
-      note.textContent = 'תודה! הפנייה נשלחה, ניצור איתכם קשר בהקדם.';
+
+      const val = (id) => (document.getElementById(id).value || '').trim();
+      const lines = [
+        'היי, אשמח לקבל פרטים על הפקת חינה 🙂',
+        '',
+        'שם: ' + val('f-name'),
+        'טלפון: ' + val('f-phone'),
+      ];
+      if (val('f-date'))   lines.push('תאריך משוער: ' + val('f-date'));
+      if (val('f-guests')) lines.push('מספר אורחים: ' + val('f-guests'));
+      if (val('f-msg'))    lines.push('', val('f-msg'));
+
+      const num = waNumber();
+      if (!num) { note.textContent = 'אירעה תקלה. אפשר ליצור קשר ישירות בוואטסאפ.'; return; }
+
+      window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+      note.textContent = 'נפתח וואטסאפ עם הפרטים — רק צריך ללחוץ שליחה.';
       form.reset();
     });
   }
