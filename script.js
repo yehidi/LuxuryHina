@@ -308,13 +308,13 @@
       </li>
       <li>
         <a class="ch" href="${b.telLink}">
-          <span class="ch-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg></span>
+          <span class="ch-ic ch-ph"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg></span>
           <span class="ch-txt"><b dir="ltr">${esc(b.phoneDisplay)}</b><em>${esc(c.phoneNote)}</em></span>
         </a>
       </li>
       <li>
         <a class="ch" href="${b.mailLink}">
-          <span class="ch-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-mail"/></svg></span>
+          <span class="ch-ic ch-ml"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-mail"/></svg></span>
           <span class="ch-txt"><b dir="ltr">${esc(b.email)}</b><em>${esc(c.emailNote)}</em></span>
         </a>
       </li>
@@ -330,11 +330,11 @@
     const b = content.business;
     $('#footerCopyright').textContent = `${b.copyrightName} — ${b.footerTagline}`;
     $('#footerSocial').innerHTML = `
-      <li><a href="${b.waLink}" target="_blank" rel="noopener" aria-label="וואטסאפ" data-wa-link><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-whatsapp"/></svg></a></li>
-      <li><a href="${esc(b.instagramUrl)}" target="_blank" rel="noopener" aria-label="אינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-instagram"/></svg></a></li>
-      <li><a href="${esc(b.facebookUrl)}" target="_blank" rel="noopener" aria-label="פייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-facebook"/></svg></a></li>
-      <li><a href="${b.telLink}" aria-label="טלפון"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg></a></li>
-      <li><a href="${b.mailLink}" aria-label="אימייל"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-mail"/></svg></a></li>`;
+      <li><a class="soc-wa" href="${b.waLink}" target="_blank" rel="noopener" aria-label="וואטסאפ" data-wa-link><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-whatsapp"/></svg></a></li>
+      <li><a class="soc-ig" href="${esc(b.instagramUrl)}" target="_blank" rel="noopener" aria-label="אינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-instagram"/></svg></a></li>
+      <li><a class="soc-fb" href="${esc(b.facebookUrl)}" target="_blank" rel="noopener" aria-label="פייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-facebook"/></svg></a></li>
+      <li><a class="soc-ph" href="${b.telLink}" aria-label="טלפון"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg></a></li>
+      <li><a class="soc-ml" href="${b.mailLink}" aria-label="אימייל"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-mail"/></svg></a></li>`;
     $('#waFloat').href = b.waLink;
   }
 

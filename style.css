@@ -1021,8 +1021,18 @@ body:not(.is-loading) .hero .fade { opacity: 1; transform: none; }
 }
 .ch-ic svg { width: 21px; height: 21px; }
 .ch:hover .ch-ic { border-color: var(--gold-2); background: rgba(var(--gold-2-rgb),.10); transform: scale(1.06); }
-.ch-wa:hover, .ch:hover .ch-wa { border-color: #4bbd5c; color: #57cf6a; background: rgba(75,189,92,.12); }
-.ch:hover .ch-ig { border-color: #d774a8; color: #e08cba; background: rgba(215,116,168,.12); }
+/* Brand icons carry their own real-world colour at rest, not the site's
+   gold accent — WhatsApp/Instagram in particular should read instantly
+   as themselves regardless of which site theme is active. */
+.ch-wa, .ch-ph, .ch-ml { border-color: transparent; color: #fff; }
+.ch-wa { background: linear-gradient(145deg, #2fae4a, #1c8c37); }
+.ch-ph { background: linear-gradient(145deg, #5b9bf5, #2f66c9); }
+.ch-ml { background: linear-gradient(145deg, #e6a465, #b8672a); }
+.ch-ig { border-color: transparent; background: none; }
+.ch:hover .ch-wa { background: linear-gradient(145deg, #34c150, #1c8c37); transform: scale(1.06); }
+.ch:hover .ch-ph { background: linear-gradient(145deg, #6ba7ff, #2f66c9); transform: scale(1.06); }
+.ch:hover .ch-ml { background: linear-gradient(145deg, #f0b077, #b8672a); transform: scale(1.06); }
+.ch:hover .ch-ig { background: rgba(var(--gold-2-rgb),.08); transform: scale(1.06); }
 .ch-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .ch-txt b { font-weight: 500; font-size: 1rem; }
 .ch-txt em { font-style: normal; font-size: .8rem; color: var(--cream-faint); }
@@ -1036,7 +1046,17 @@ body:not(.is-loading) .hero .fade { opacity: 1; transform: none; }
   transition: border-color .4s var(--ease), color .4s var(--ease), background .4s var(--ease), transform .4s var(--ease);
 }
 .social svg { width: 18px; height: 18px; }
-.social a:hover { border-color: var(--gold-2); color: var(--gold-1); background: rgba(var(--gold-2-rgb),.10); transform: translateY(-3px); }
+.social a:hover { transform: translateY(-3px); }
+.social a.soc-wa, .social a.soc-fb, .social a.soc-ph, .social a.soc-ml { border-color: transparent; color: #fff; }
+.social a.soc-wa { background: linear-gradient(145deg, #2fae4a, #1c8c37); }
+.social a.soc-fb { background: linear-gradient(145deg, #2d88ff, #1360d6); }
+.social a.soc-ph { background: linear-gradient(145deg, #5b9bf5, #2f66c9); }
+.social a.soc-ml { background: linear-gradient(145deg, #e6a465, #b8672a); }
+.social a.soc-ig { border-color: transparent; }
+.social a.soc-wa:hover { background: linear-gradient(145deg, #34c150, #1c8c37); }
+.social a.soc-fb:hover { background: linear-gradient(145deg, #4a9bff, #1360d6); }
+.social a.soc-ph:hover { background: linear-gradient(145deg, #6ba7ff, #2f66c9); }
+.social a.soc-ml:hover { background: linear-gradient(145deg, #f0b077, #b8672a); }
 
 /* ═══════════════  FLOATING WHATSAPP  ═══════════════ */
 .wa-float {
