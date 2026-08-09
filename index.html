@@ -5,252 +5,596 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>שם העסק | הפקת חינות יוקרתיות</title>
 <meta name="description" content="הפקת אירועי חינה יוקרתיים בהתאמה אישית - עיצוב, תפאורה וליווי מלא מהרעיון ועד האירוע.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='12' y='2' width='14' height='14' fill='none' stroke='%23a9834c' stroke-width='1.5' transform='rotate(45 12 12)'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0f0b09">
+<meta property="og:title" content="שם העסק | הפקת חינות יוקרתיות">
+<meta property="og:description" content="עיצוב, תפאורה ואווירה שמתוכננים בקפידה - וליווי אישי מהרעיון הראשון ועד הרגע הגדול.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230f0b09'/%3E%3Cg fill='none' stroke='%23dcb978' stroke-width='1.1'%3E%3Ccircle cx='12' cy='12' r='7'/%3E%3Cpath d='M12 5v14M5 12h14M7 7l10 10M17 7L7 17'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="is-loading">
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="motif" viewBox="0 0 400 400">
-      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
-        <path d="M210,50 C130,55 78,120 92,205 C103,272 165,325 228,308 C282,293 306,232 270,190 C242,157 190,163 178,202 C169,232 194,258 220,246" />
-        <path d="M130,80 C98,64 66,74 54,104" />
-        <path d="M300,110 C332,92 362,104 372,134" />
-        <path d="M86,240 C54,248 32,278 40,310" />
-        <circle cx="228" cy="308" r="3.2" fill="currentColor" stroke="none" />
-        <circle cx="248" cy="328" r="2.3" fill="currentColor" stroke="none" />
-        <circle cx="264" cy="346" r="1.5" fill="currentColor" stroke="none" />
-      </g>
-    </symbol>
-  </defs>
-</svg>
+<!-- ─────────────  ORNAMENT LIBRARY  ───────────── -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="orn-defs" aria-hidden="true" focusable="false"><defs>
+<symbol id="orn-mandala" viewBox="0 0 400 400">
+    <g fill="none" stroke="currentColor" stroke-width="1.05" stroke-linejoin="round">
+      <path d="M296.00,200.00 Q333.80,192.64 376.00,200.00 Q333.80,207.36 296.00,200.00 Z"/>
+      <path d="M292.73,224.85 Q331.14,227.52 370.00,245.55 Q327.33,241.74 292.73,224.85 Z"/>
+      <path d="M283.14,248.00 Q319.55,260.52 352.42,288.00 Q312.19,273.28 283.14,248.00 Z"/>
+      <path d="M267.88,267.88 Q299.82,289.40 324.45,324.45 Q289.40,299.82 267.88,267.88 Z"/>
+      <path d="M248.00,283.14 Q273.28,312.19 288.00,352.42 Q260.52,319.55 248.00,283.14 Z"/>
+      <path d="M224.85,292.73 Q241.74,327.33 245.55,370.00 Q227.52,331.14 224.85,292.73 Z"/>
+      <path d="M200.00,296.00 Q207.36,333.80 200.00,376.00 Q192.64,333.80 200.00,296.00 Z"/>
+      <path d="M175.15,292.73 Q172.48,331.14 154.45,370.00 Q158.26,327.33 175.15,292.73 Z"/>
+      <path d="M152.00,283.14 Q139.48,319.55 112.00,352.42 Q126.72,312.19 152.00,283.14 Z"/>
+      <path d="M132.12,267.88 Q110.60,299.82 75.55,324.45 Q100.18,289.40 132.12,267.88 Z"/>
+      <path d="M116.86,248.00 Q87.81,273.28 47.58,288.00 Q80.45,260.52 116.86,248.00 Z"/>
+      <path d="M107.27,224.85 Q72.67,241.74 30.00,245.55 Q68.86,227.52 107.27,224.85 Z"/>
+      <path d="M104.00,200.00 Q66.20,207.36 24.00,200.00 Q66.20,192.64 104.00,200.00 Z"/>
+      <path d="M107.27,175.15 Q68.86,172.48 30.00,154.45 Q72.67,158.26 107.27,175.15 Z"/>
+      <path d="M116.86,152.00 Q80.45,139.48 47.58,112.00 Q87.81,126.72 116.86,152.00 Z"/>
+      <path d="M132.12,132.12 Q100.18,110.60 75.55,75.55 Q110.60,100.18 132.12,132.12 Z"/>
+      <path d="M152.00,116.86 Q126.72,87.81 112.00,47.58 Q139.48,80.45 152.00,116.86 Z"/>
+      <path d="M175.15,107.27 Q158.26,72.67 154.45,30.00 Q172.48,68.86 175.15,107.27 Z"/>
+      <path d="M200.00,104.00 Q192.64,66.20 200.00,24.00 Q207.36,66.20 200.00,104.00 Z"/>
+      <path d="M224.85,107.27 Q227.52,68.86 245.55,30.00 Q241.74,72.67 224.85,107.27 Z"/>
+      <path d="M248.00,116.86 Q260.52,80.45 288.00,47.58 Q273.28,87.81 248.00,116.86 Z"/>
+      <path d="M267.88,132.12 Q289.40,100.18 324.45,75.55 Q299.82,110.60 267.88,132.12 Z"/>
+      <path d="M283.14,152.00 Q312.19,126.72 352.42,112.00 Q319.55,139.48 283.14,152.00 Z"/>
+      <path d="M292.73,175.15 Q327.33,158.26 370.00,154.45 Q331.14,172.48 292.73,175.15 Z"/>
+      <path d="M250.23,213.46 Q281.78,206.01 292.73,224.85 Q273.83,235.69 250.23,213.46 Z"/>
+      <path d="M236.77,236.77 Q267.82,246.09 267.88,267.88 Q246.09,267.82 236.77,236.77 Z"/>
+      <path d="M213.46,250.23 Q235.69,273.83 224.85,292.73 Q206.01,281.78 213.46,250.23 Z"/>
+      <path d="M186.54,250.23 Q193.99,281.78 175.15,292.73 Q164.31,273.83 186.54,250.23 Z"/>
+      <path d="M163.23,236.77 Q153.91,267.82 132.12,267.88 Q132.18,246.09 163.23,236.77 Z"/>
+      <path d="M149.77,213.46 Q126.17,235.69 107.27,224.85 Q118.22,206.01 149.77,213.46 Z"/>
+      <path d="M149.77,186.54 Q118.22,193.99 107.27,175.15 Q126.17,164.31 149.77,186.54 Z"/>
+      <path d="M163.23,163.23 Q132.18,153.91 132.12,132.12 Q153.91,132.18 163.23,163.23 Z"/>
+      <path d="M186.54,149.77 Q164.31,126.17 175.15,107.27 Q193.99,118.22 186.54,149.77 Z"/>
+      <path d="M213.46,149.77 Q206.01,118.22 224.85,107.27 Q235.69,126.17 213.46,149.77 Z"/>
+      <path d="M236.77,163.23 Q246.09,132.18 267.88,132.12 Q267.82,153.91 236.77,163.23 Z"/>
+      <path d="M250.23,186.54 Q273.83,164.31 292.73,175.15 Q281.78,193.99 250.23,186.54 Z"/>
+      <path d="M216.00,200.00 Q236.14,188.26 252.00,200.00 Q236.14,211.74 216.00,200.00 Z"/>
+      <path d="M211.31,211.31 Q233.86,217.25 236.77,236.77 Q217.25,233.86 211.31,211.31 Z"/>
+      <path d="M200.00,216.00 Q211.74,236.14 200.00,252.00 Q188.26,236.14 200.00,216.00 Z"/>
+      <path d="M188.69,211.31 Q182.75,233.86 163.23,236.77 Q166.14,217.25 188.69,211.31 Z"/>
+      <path d="M184.00,200.00 Q163.86,211.74 148.00,200.00 Q163.86,188.26 184.00,200.00 Z"/>
+      <path d="M188.69,188.69 Q166.14,182.75 163.23,163.23 Q182.75,166.14 188.69,188.69 Z"/>
+      <path d="M200.00,184.00 Q188.26,163.86 200.00,148.00 Q211.74,163.86 200.00,184.00 Z"/>
+      <path d="M211.31,188.69 Q217.25,166.14 236.77,163.23 Q233.86,182.75 211.31,188.69 Z"/>
+      <circle cx="200" cy="200" r="14"/>
+      <circle cx="200" cy="200" r="50"/>
+      <circle cx="200" cy="200" r="94"/>
+      <circle cx="200" cy="200" r="178"/>
+      <circle cx="200" cy="200" r="190"/>
+      <circle cx="384.00" cy="200.00" r="1.6" class="fill"/>
+      <circle cx="381.20" cy="231.95" r="1.6" class="fill"/>
+      <circle cx="372.90" cy="262.93" r="1.6" class="fill"/>
+      <circle cx="359.35" cy="292.00" r="1.6" class="fill"/>
+      <circle cx="340.95" cy="318.27" r="1.6" class="fill"/>
+      <circle cx="318.27" cy="340.95" r="1.6" class="fill"/>
+      <circle cx="292.00" cy="359.35" r="1.6" class="fill"/>
+      <circle cx="262.93" cy="372.90" r="1.6" class="fill"/>
+      <circle cx="231.95" cy="381.20" r="1.6" class="fill"/>
+      <circle cx="200.00" cy="384.00" r="1.6" class="fill"/>
+      <circle cx="168.05" cy="381.20" r="1.6" class="fill"/>
+      <circle cx="137.07" cy="372.90" r="1.6" class="fill"/>
+      <circle cx="108.00" cy="359.35" r="1.6" class="fill"/>
+      <circle cx="81.73" cy="340.95" r="1.6" class="fill"/>
+      <circle cx="59.05" cy="318.27" r="1.6" class="fill"/>
+      <circle cx="40.65" cy="292.00" r="1.6" class="fill"/>
+      <circle cx="27.10" cy="262.93" r="1.6" class="fill"/>
+      <circle cx="18.80" cy="231.95" r="1.6" class="fill"/>
+      <circle cx="16.00" cy="200.00" r="1.6" class="fill"/>
+      <circle cx="18.80" cy="168.05" r="1.6" class="fill"/>
+      <circle cx="27.10" cy="137.07" r="1.6" class="fill"/>
+      <circle cx="40.65" cy="108.00" r="1.6" class="fill"/>
+      <circle cx="59.05" cy="81.73" r="1.6" class="fill"/>
+      <circle cx="81.73" cy="59.05" r="1.6" class="fill"/>
+      <circle cx="108.00" cy="40.65" r="1.6" class="fill"/>
+      <circle cx="137.07" cy="27.10" r="1.6" class="fill"/>
+      <circle cx="168.05" cy="18.80" r="1.6" class="fill"/>
+      <circle cx="200.00" cy="16.00" r="1.6" class="fill"/>
+      <circle cx="231.95" cy="18.80" r="1.6" class="fill"/>
+      <circle cx="262.93" cy="27.10" r="1.6" class="fill"/>
+      <circle cx="292.00" cy="40.65" r="1.6" class="fill"/>
+      <circle cx="318.27" cy="59.05" r="1.6" class="fill"/>
+      <circle cx="340.95" cy="81.73" r="1.6" class="fill"/>
+      <circle cx="359.35" cy="108.00" r="1.6" class="fill"/>
+      <circle cx="372.90" cy="137.07" r="1.6" class="fill"/>
+      <circle cx="381.20" cy="168.05" r="1.6" class="fill"/>
+    </g>
+  </symbol>
 
-<div class="preloader" id="preloader" aria-hidden="true">
-  <span class="preloader-mark">שם העסק</span>
+  <symbol id="orn-rosette" viewBox="0 0 400 400">
+    <g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linejoin="round">
+      <path d="M200.00,30.00 L223.81,111.13 L285.00,52.78 L265.05,134.95 L347.22,115.00 L288.87,176.19 L370.00,200.00 L288.87,223.81 L347.22,285.00 L265.05,265.05 L285.00,347.22 L223.81,288.87 L200.00,370.00 L176.19,288.87 L115.00,347.22 L134.95,265.05 L52.78,285.00 L111.13,223.81 L30.00,200.00 L111.13,176.19 L52.78,115.00 L134.95,134.95 L115.00,52.78 L176.19,111.13 Z"/>
+      <path d="M231.06,84.09 L231.00,146.31 L284.85,115.15 L253.69,169.00 L315.91,168.94 L262.00,200.00 L315.91,231.06 L253.69,231.00 L284.85,284.85 L231.00,253.69 L231.06,315.91 L200.00,262.00 L168.94,315.91 L169.00,253.69 L115.15,284.85 L146.31,231.00 L84.09,231.06 L138.00,200.00 L84.09,168.94 L146.31,169.00 L115.15,115.15 L169.00,146.31 L168.94,84.09 L200.00,138.00 Z"/>
+      <path d="M200.00,138.00 L200.00,14.00"/>
+      <circle cx="200.00" cy="14.00" r="3" class="fill"/>
+      <path d="M231.00,146.31 L293.00,38.92"/>
+      <circle cx="293.00" cy="38.92" r="3" class="fill"/>
+      <path d="M253.69,169.00 L361.08,107.00"/>
+      <circle cx="361.08" cy="107.00" r="3" class="fill"/>
+      <path d="M262.00,200.00 L386.00,200.00"/>
+      <circle cx="386.00" cy="200.00" r="3" class="fill"/>
+      <path d="M253.69,231.00 L361.08,293.00"/>
+      <circle cx="361.08" cy="293.00" r="3" class="fill"/>
+      <path d="M231.00,253.69 L293.00,361.08"/>
+      <circle cx="293.00" cy="361.08" r="3" class="fill"/>
+      <path d="M200.00,262.00 L200.00,386.00"/>
+      <circle cx="200.00" cy="386.00" r="3" class="fill"/>
+      <path d="M169.00,253.69 L107.00,361.08"/>
+      <circle cx="107.00" cy="361.08" r="3" class="fill"/>
+      <path d="M146.31,231.00 L38.92,293.00"/>
+      <circle cx="38.92" cy="293.00" r="3" class="fill"/>
+      <path d="M138.00,200.00 L14.00,200.00"/>
+      <circle cx="14.00" cy="200.00" r="3" class="fill"/>
+      <path d="M146.31,169.00 L38.92,107.00"/>
+      <circle cx="38.92" cy="107.00" r="3" class="fill"/>
+      <path d="M169.00,146.31 L107.00,38.92"/>
+      <circle cx="107.00" cy="38.92" r="3" class="fill"/>
+      <circle cx="200" cy="200" r="40"/>
+      <circle cx="200" cy="200" r="62"/>
+      <circle cx="200" cy="200" r="196"/>
+    </g>
+  </symbol>
+
+  <symbol id="orn-boteh" viewBox="0 0 400 400">
+    <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round">
+      <path transform="translate(186.00,212.00) scale(1.0) translate(-186.00,-212.00)" d="M250,58 C302,138 300,232 236,296 C186,346 104,342 84,286 C64,230 104,174 150,159 C196,144 226,118 250,58 Z"/>
+      <path transform="translate(186.00,212.00) scale(0.8) translate(-186.00,-212.00)" d="M250,58 C302,138 300,232 236,296 C186,346 104,342 84,286 C64,230 104,174 150,159 C196,144 226,118 250,58 Z"/>
+      <path transform="translate(186.00,212.00) scale(0.6) translate(-186.00,-212.00)" d="M250,58 C302,138 300,232 236,296 C186,346 104,342 84,286 C64,230 104,174 150,159 C196,144 226,118 250,58 Z"/>
+      <path transform="translate(186.00,212.00) scale(0.42) translate(-186.00,-212.00)" d="M250,58 C302,138 300,232 236,296 C186,346 104,342 84,286 C64,230 104,174 150,159 C196,144 226,118 250,58 Z"/>
+      <ellipse cx="232" cy="120" rx="13" ry="8.58" transform="rotate(-44.00 232 120)"/>
+      <ellipse cx="246" cy="168" rx="15" ry="9.90" transform="rotate(-17.60 246 168)"/>
+      <ellipse cx="240" cy="220" rx="15" ry="9.90" transform="rotate(11.00 240 220)"/>
+      <ellipse cx="214" cy="262" rx="13" ry="8.58" transform="rotate(34.10 214 262)"/>
+      <ellipse cx="174" cy="288" rx="11" ry="7.26" transform="rotate(48.40 174 288)"/>
+      <ellipse cx="132" cy="288" rx="8" ry="5.28" transform="rotate(48.40 132 288)"/>
+      <circle cx="242.60" cy="150.16" r="1.9" class="fill"/>
+      <circle cx="254.56" cy="175.87" r="1.9" class="fill"/>
+      <circle cx="259.81" cy="205.12" r="1.9" class="fill"/>
+      <circle cx="257.84" cy="235.05" r="1.9" class="fill"/>
+      <circle cx="248.83" cy="262.72" r="1.9" class="fill"/>
+      <circle cx="233.67" cy="285.42" r="1.9" class="fill"/>
+      <circle cx="213.85" cy="300.94" r="1.9" class="fill"/>
+      <circle cx="191.30" cy="307.75" r="1.9" class="fill"/>
+      <circle cx="168.23" cy="305.19" r="1.9" class="fill"/>
+      <circle cx="146.90" cy="293.51" r="1.9" class="fill"/>
+      <circle cx="129.40" cy="273.84" r="1.9" class="fill"/>
+      <circle cx="117.44" cy="248.13" r="1.9" class="fill"/>
+      <circle cx="112.19" cy="218.88" r="1.9" class="fill"/>
+      <circle cx="114.16" cy="188.95" r="1.9" class="fill"/>
+      <circle cx="123.17" cy="161.28" r="1.9" class="fill"/>
+      <circle cx="138.33" cy="138.58" r="1.9" class="fill"/>
+      <circle cx="158.15" cy="123.06" r="1.9" class="fill"/>
+      <circle cx="180.70" cy="116.25" r="1.9" class="fill"/>
+      <circle cx="203.77" cy="118.81" r="1.9" class="fill"/>
+      <circle cx="225.10" cy="130.49" r="1.9" class="fill"/>
+      <circle cx="268" cy="36" r="3.4" class="fill"/>
+      <circle cx="282" cy="20" r="2.4" class="fill"/>
+      <circle cx="292" cy="8" r="1.6" class="fill"/>
+    </g>
+  </symbol>
+
+  <symbol id="orn-vine" viewBox="0 0 400 400">
+    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24,352 C96,312 66,222 138,186 C206,152 178,76 252,52 C312,32 348,58 380,40"/>
+      <path transform="rotate(-46 70 306)" d="M70,306 c14,-20 40,-24 56,-2 c-16,22 -42,20 -56,2 Z"/>
+      <path transform="rotate(-46 70 306)" d="M70,306 l54,-1"/>
+      <path transform="rotate(34 104 266)" d="M104,266 c14,-20 40,-24 56,-2 c-16,22 -42,20 -56,2 Z"/>
+      <path transform="rotate(34 104 266)" d="M104,266 l54,-1"/>
+      <path transform="rotate(-38 140 214)" d="M140,214 c14,-20 40,-24 56,-2 c-16,22 -42,20 -56,2 Z"/>
+      <path transform="rotate(-38 140 214)" d="M140,214 l54,-1"/>
+      <path transform="rotate(28 176 170)" d="M176,170 c14,-20 40,-24 56,-2 c-16,22 -42,20 -56,2 Z"/>
+      <path transform="rotate(28 176 170)" d="M176,170 l54,-1"/>
+      <path transform="rotate(-34 214 132)" d="M214,132 c14,-20 40,-24 56,-2 c-16,22 -42,20 -56,2 Z"/>
+      <path transform="rotate(-34 214 132)" d="M214,132 l54,-1"/>
+      <path transform="rotate(22 252 92)" d="M252,92 c14,-20 40,-24 56,-2 c-16,22 -42,20 -56,2 Z"/>
+      <path transform="rotate(22 252 92)" d="M252,92 l54,-1"/>
+      <path transform="rotate(-26 300 60)" d="M300,60 c14,-20 40,-24 56,-2 c-16,22 -42,20 -56,2 Z"/>
+      <path transform="rotate(-26 300 60)" d="M300,60 l54,-1"/>
+      <path transform="rotate(16 342 50)" d="M342,50 c14,-20 40,-24 56,-2 c-16,22 -42,20 -56,2 Z"/>
+      <path transform="rotate(16 342 50)" d="M342,50 l54,-1"/>
+      <path d="M122.00,240.00 L122.56,239.20 L122.77,238.09 L122.50,236.82 L121.68,235.59 L120.34,234.61 L118.56,234.09 L116.52,234.20 L114.45,235.04 L112.61,236.64 L111.27,238.90 L110.67,241.66 L110.98,244.67 L112.29,247.62 L114.58,250.16 L117.71,251.98 L121.45,252.80 L125.46,252.41 L129.35,250.74 L132.70,247.84 L135.11,243.88 L136.26,239.18 L135.92,234.15 L134.01,229.28 L130.58,225.04 L125.87,221.93"/>
+      <path d="M194.00,150.00 L193.44,149.20 L193.23,148.09 L193.50,146.82 L194.32,145.59 L195.66,144.61 L197.44,144.09 L199.48,144.20 L201.55,145.04 L203.39,146.64 L204.73,148.90 L205.33,151.66 L205.02,154.67 L203.71,157.62 L201.42,160.16 L198.29,161.98 L194.55,162.80 L190.54,162.41 L186.65,160.74 L183.30,157.84 L180.89,153.88 L179.74,149.18 L180.08,144.15 L181.99,139.28 L185.42,135.04 L190.13,131.93"/>
+      <path d="M288.00,74.00 L288.56,73.20 L288.77,72.09 L288.50,70.82 L287.68,69.59 L286.34,68.61 L284.56,68.09 L282.52,68.20 L280.45,69.04 L278.61,70.64 L277.27,72.90 L276.67,75.66 L276.98,78.67 L278.29,81.62 L280.58,84.16 L283.71,85.98 L287.45,86.80 L291.46,86.41 L295.35,84.74 L298.70,81.84 L301.11,77.88 L302.26,73.18 L301.92,68.15 L300.01,63.28 L296.58,59.04 L291.87,55.93"/>
+      <ellipse cx="150.00" cy="186.00" rx="6.4" ry="4.2" transform="rotate(0.00 150.00 186.00)"/>
+      <ellipse cx="144.00" cy="196.39" rx="6.4" ry="4.2" transform="rotate(60.00 144.00 196.39)"/>
+      <ellipse cx="132.00" cy="196.39" rx="6.4" ry="4.2" transform="rotate(120.00 132.00 196.39)"/>
+      <ellipse cx="126.00" cy="186.00" rx="6.4" ry="4.2" transform="rotate(180.00 126.00 186.00)"/>
+      <ellipse cx="132.00" cy="175.61" rx="6.4" ry="4.2" transform="rotate(240.00 132.00 175.61)"/>
+      <ellipse cx="144.00" cy="175.61" rx="6.4" ry="4.2" transform="rotate(300.00 144.00 175.61)"/>
+      <circle cx="138" cy="186" r="3.6" class="fill"/>
+      <ellipse cx="264.00" cy="52.00" rx="6.4" ry="4.2" transform="rotate(0.00 264.00 52.00)"/>
+      <ellipse cx="258.00" cy="62.39" rx="6.4" ry="4.2" transform="rotate(60.00 258.00 62.39)"/>
+      <ellipse cx="246.00" cy="62.39" rx="6.4" ry="4.2" transform="rotate(120.00 246.00 62.39)"/>
+      <ellipse cx="240.00" cy="52.00" rx="6.4" ry="4.2" transform="rotate(180.00 240.00 52.00)"/>
+      <ellipse cx="246.00" cy="41.61" rx="6.4" ry="4.2" transform="rotate(240.00 246.00 41.61)"/>
+      <ellipse cx="258.00" cy="41.61" rx="6.4" ry="4.2" transform="rotate(300.00 258.00 41.61)"/>
+      <circle cx="252" cy="52" r="3.6" class="fill"/>
+      <ellipse cx="392.00" cy="40.00" rx="6.4" ry="4.2" transform="rotate(0.00 392.00 40.00)"/>
+      <ellipse cx="386.00" cy="50.39" rx="6.4" ry="4.2" transform="rotate(60.00 386.00 50.39)"/>
+      <ellipse cx="374.00" cy="50.39" rx="6.4" ry="4.2" transform="rotate(120.00 374.00 50.39)"/>
+      <ellipse cx="368.00" cy="40.00" rx="6.4" ry="4.2" transform="rotate(180.00 368.00 40.00)"/>
+      <ellipse cx="374.00" cy="29.61" rx="6.4" ry="4.2" transform="rotate(240.00 374.00 29.61)"/>
+      <ellipse cx="386.00" cy="29.61" rx="6.4" ry="4.2" transform="rotate(300.00 386.00 29.61)"/>
+      <circle cx="380" cy="40" r="3.6" class="fill"/>
+    </g>
+  </symbol>
+
+  <pattern id="pat-girih" width="120" height="120" patternUnits="userSpaceOnUse">
+    <g fill="none" stroke="currentColor" stroke-width="0.9">
+        <path d="M33.26,13.78 L11.46,11.46 L13.78,33.26 L0.00,16.20 L-13.78,33.26 L-11.46,11.46 L-33.26,13.78 L-16.20,0.00 L-33.26,-13.78 L-11.46,-11.46 L-13.78,-33.26 L-0.00,-16.20 L13.78,-33.26 L11.46,-11.46 L33.26,-13.78 L16.20,-0.00 Z"/>
+        <path d="M153.26,13.78 L131.46,11.46 L133.78,33.26 L120.00,16.20 L106.22,33.26 L108.54,11.46 L86.74,13.78 L103.80,0.00 L86.74,-13.78 L108.54,-11.46 L106.22,-33.26 L120.00,-16.20 L133.78,-33.26 L131.46,-11.46 L153.26,-13.78 L136.20,-0.00 Z"/>
+        <path d="M33.26,133.78 L11.46,131.46 L13.78,153.26 L0.00,136.20 L-13.78,153.26 L-11.46,131.46 L-33.26,133.78 L-16.20,120.00 L-33.26,106.22 L-11.46,108.54 L-13.78,86.74 L-0.00,103.80 L13.78,86.74 L11.46,108.54 L33.26,106.22 L16.20,120.00 Z"/>
+        <path d="M153.26,133.78 L131.46,131.46 L133.78,153.26 L120.00,136.20 L106.22,153.26 L108.54,131.46 L86.74,133.78 L103.80,120.00 L86.74,106.22 L108.54,108.54 L106.22,86.74 L120.00,103.80 L133.78,86.74 L131.46,108.54 L153.26,106.22 L136.20,120.00 Z"/>
+        <path d="M93.26,73.78 L71.46,71.46 L73.78,93.26 L60.00,76.20 L46.22,93.26 L48.54,71.46 L26.74,73.78 L43.80,60.00 L26.74,46.22 L48.54,48.54 L46.22,26.74 L60.00,43.80 L73.78,26.74 L71.46,48.54 L93.26,46.22 L76.20,60.00 Z"/>
+        <path d="M72.75,5.28 L65.28,12.75 L54.72,12.75 L47.25,5.28 L47.25,-5.28 L54.72,-12.75 L65.28,-12.75 L72.75,-5.28 Z"/>
+        <path d="M12.75,65.28 L5.28,72.75 L-5.28,72.75 L-12.75,65.28 L-12.75,54.72 L-5.28,47.25 L5.28,47.25 L12.75,54.72 Z"/>
+        <path d="M132.75,65.28 L125.28,72.75 L114.72,72.75 L107.25,65.28 L107.25,54.72 L114.72,47.25 L125.28,47.25 L132.75,54.72 Z"/>
+        <path d="M72.75,125.28 L65.28,132.75 L54.72,132.75 L47.25,125.28 L47.25,114.72 L54.72,107.25 L65.28,107.25 L72.75,114.72 Z"/>
+    </g>
+  </pattern>
+
+  <pattern id="pat-ogee" width="120" height="160" patternUnits="userSpaceOnUse">
+    <g fill="none" stroke="currentColor" stroke-width="0.9">
+        <path d="M60.00,0 C110.40,25.60 120.00,44.80 120.00,80.00 C120.00,115.20 110.40,134.40 60.00,160.00 C9.60,134.40 0,115.20 0,80.00 C0,44.80 9.60,25.60 60.00,0 Z"/>
+        <path d="M60.00,48.00 C84.00,64.00 84.00,96.00 60.00,112.00 C36.00,96.00 36.00,64.00 60.00,48.00 Z"/>
+        <circle cx="60.00" cy="80.00" r="6.60" class="fill"/>
+        <path d="M0,0 C12.00,16.00 19.20,32.00 19.20,80.00 C19.20,128.00 12.00,144.00 0,160.00" opacity=".5"/>
+        <path d="M120.00,0 C108.00,16.00 100.80,32.00 100.80,80.00 C100.80,128.00 108.00,144.00 120.00,160.00" opacity=".5"/>
+    </g>
+  </pattern>
+
+  <pattern id="pat-scallop" width="64" height="64" patternUnits="userSpaceOnUse">
+    <g fill="none" stroke="currentColor" stroke-width="0.8">
+        <circle cx="0.00" cy="0.00" r="32.00"/>
+        <circle cx="64.00" cy="0.00" r="32.00"/>
+        <circle cx="0.00" cy="64.00" r="32.00"/>
+        <circle cx="64.00" cy="64.00" r="32.00"/>
+        <circle cx="32.00" cy="32.00" r="32.00"/>
+    </g>
+  </pattern>
+</defs></svg>
+
+<!-- ─────────────  INTRO  ───────────── -->
+<div class="intro" id="intro">
+  <div class="intro-inner">
+    <svg class="intro-mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
+    <span class="intro-word">שם העסק</span>
+    <span class="intro-count" id="introCount">0</span>
+  </div>
+  <span class="intro-panel intro-panel-a"></span>
+  <span class="intro-panel intro-panel-b"></span>
 </div>
 
-<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"></span></div>
 
-<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
-
-<header class="site-header" id="siteHeader">
-  <div class="container header-inner">
-    <a href="#top" class="logo">
-      <svg class="logo-mark" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="12" y="1.5" width="14.5" height="14.5" fill="none" stroke="currentColor" stroke-width="1.3" transform="rotate(45 12 12)"/></svg>
-      <span>שם <em>העסק</em></span>
+<!-- ─────────────  HEADER  ───────────── -->
+<header class="header" id="header">
+  <div class="shell header-inner">
+    <a href="#top" class="brand" aria-label="שם העסק - לראש העמוד">
+      <svg class="brand-mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
+      <span class="brand-name">שם <em>העסק</em></span>
     </a>
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="ניווט ראשי">
       <a href="#about"><span>אודות</span></a>
       <a href="#services"><span>השירותים</span></a>
       <a href="#gallery"><span>גלריה</span></a>
       <a href="#testimonials"><span>המלצות</span></a>
       <a href="#contact"><span>צור קשר</span></a>
     </nav>
-    <a href="#contact" class="btn btn-outline nav-cta magnetic"><span>בואו נדבר</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="פתיחת תפריט" aria-expanded="false">
-      <span></span><span></span><span></span>
+    <a href="#contact" class="btn btn-ghost header-cta magnetic"><span>בואו נדבר</span></a>
+    <button class="burger" id="burger" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span>
     </button>
   </div>
 </header>
 
+<main>
+
+<!-- ─────────────  HERO  ───────────── -->
 <section class="hero" id="top">
-  <div class="hero-grain" aria-hidden="true"></div>
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow reveal" data-reveal><b>01</b>בוטיק הפקות חינה</p>
-      <h1 class="hero-title">
-        <span class="mask"><span class="hero-title-main reveal-line">חינה יוקרתית</span></span>
-        <span class="mask"><span class="hero-title-sub reveal-line" style="--delay:.15s">בהתאמה אישית, לחלום שלכם</span></span>
-      </h1>
-      <p class="hero-sub reveal" data-reveal style="--delay:.5s">עיצוב, תפאורה ואווירה שמתוכננים בקפידה - וליווי אישי מהרעיון הראשון ועד הרגע הגדול.</p>
-      <div class="hero-actions reveal" data-reveal style="--delay:.62s">
-        <a href="https://wa.me/972500000000" target="_blank" rel="noopener" class="btn btn-primary magnetic"><span>תיאום פגישת ייעוץ</span></a>
-        <a href="#gallery" class="link-arrow magnetic"><span>לצפייה בעבודות</span> <i>←</i></a>
-      </div>
-    </div>
-    <div class="hero-visual reveal" data-reveal style="--delay:.3s" id="heroVisual" aria-hidden="true">
-      <svg class="motif-svg" viewBox="0 0 400 400"><use href="#motif"/></svg>
+  <div class="hero-light" aria-hidden="true"></div>
+  <div class="hero-mandala" aria-hidden="true" data-parallax="0.03">
+    <svg viewBox="0 0 400 400"><use href="#orn-mandala"/></svg>
+  </div>
+  <div class="bokeh" id="bokeh" aria-hidden="true"></div>
+  <div class="hero-frame" aria-hidden="true" data-parallax="0.014"></div>
+
+  <div class="shell hero-inner">
+    <p class="eyebrow hero-eyebrow"><b>01</b><i></i>בוטיק הפקות חינה</p>
+    <h1 class="hero-title" data-split>חינה יוקרתית</h1>
+    <p class="hero-lede" data-split>בהתאמה אישית, לחלום שלכם</p>
+    <p class="hero-sub fade" style="--d:.9s">עיצוב, תפאורה ואווירה שמתוכננים בקפידה — וליווי אישי מהרעיון הראשון ועד הרגע הגדול.</p>
+    <div class="hero-cta fade" style="--d:1.02s">
+      <a href="https://wa.me/972500000000" target="_blank" rel="noopener" class="btn btn-gold magnetic"><span>תיאום פגישת ייעוץ</span></a>
+      <a href="#gallery" class="arrow-link magnetic"><span>לצפייה בעבודות</span><i aria-hidden="true">←</i></a>
     </div>
   </div>
-  <a href="#about" class="scroll-cue" aria-label="גלילה למטה"><span></span></a>
+
+  <a href="#about" class="scroll-hint fade" style="--d:1.2s" aria-label="גלילה למטה"><span></span></a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
 </section>
 
+<!-- ─────────────  RULE  ───────────── -->
+<div class="rule" aria-hidden="true">
+  <span class="rule-line"></span>
+  <svg class="rule-mark" viewBox="0 0 400 400"><use href="#orn-rosette"/></svg>
+  <span class="rule-line"></span>
+</div>
+
+<!-- ─────────────  ABOUT  ───────────── -->
 <section class="about" id="about">
-  <div class="container about-grid">
-    <div class="about-visual reveal" data-reveal aria-hidden="true">
-      <svg class="motif-svg motif-flip" viewBox="0 0 400 400"><use href="#motif"/></svg>
+  <div class="shell about-grid">
+    <div class="panel reveal" aria-hidden="true" data-parallax="0.02">
+      <div class="panel-glow"></div>
+      <div class="panel-pattern"></div>
+      <svg class="panel-motif" viewBox="0 0 400 400"><use href="#orn-mandala"/></svg>
+      <span class="panel-corner tl"></span><span class="panel-corner tr"></span>
+      <span class="panel-corner bl"></span><span class="panel-corner br"></span>
     </div>
-    <div class="about-text">
-      <p class="eyebrow reveal" data-reveal><b>02</b>מי אנחנו</p>
-      <h2 class="reveal" data-reveal>אירוע חינה הוא סיפור<br>אנחנו כאן לספר אותו נכון</h2>
-      <p class="reveal" data-reveal style="--delay:.1s">
-        אנחנו צוות מפיקים ומעצבים המתמחה באירועי חינה יוקרתיים, המשלבים מסורת עשירה עם עיצוב עכשווי ומדויק.
-        כל אירוע מתחיל בהקשבה - לסיפור המשפחה, למנהגים, לצבעים ולחלום שלכם.
-      </p>
-      <p class="reveal" data-reveal style="--delay:.18s">
-        מתפאורה מרהיבה ותאורה אווירתית, דרך עמדות מזון וריחות מסורתיים, ועד לליווי צמוד בכל שלב - אנחנו דואגים
-        שתוכלו פשוט ליהנות מהרגע.
-      </p>
-      <ul class="about-stats reveal" data-reveal style="--delay:.26s">
-        <li><strong data-count="150" data-suffix="+">0</strong><span>אירועים מופקים</span></li>
-        <li><strong data-count="10">0</strong><span>שנות ניסיון</span></li>
-        <li><strong data-count="100" data-suffix="%">0</strong><span>התאמה אישית</span></li>
+
+    <div class="about-body">
+      <p class="eyebrow reveal"><b>02</b><i></i>מי אנחנו</p>
+      <h2 class="reveal" data-split>אירוע חינה הוא סיפור.<br>אנחנו כאן לספר אותו נכון.</h2>
+      <p class="reveal" style="--d:.1s">אנחנו צוות מפיקים ומעצבים המתמחה באירועי חינה יוקרתיים, המשלבים מסורת עשירה עם עיצוב עכשווי ומדויק. כל אירוע מתחיל בהקשבה — לסיפור המשפחה, למנהגים, לצבעים ולחלום שלכם.</p>
+      <p class="reveal" style="--d:.18s">מתפאורה מרהיבה ותאורה אווירתית, דרך עמדות מזון וריחות מסורתיים, ועד לליווי צמוד בכל שלב — אנחנו דואגים שתוכלו פשוט ליהנות מהרגע.</p>
+      <ul class="stats reveal" style="--d:.26s">
+        <li><strong class="foil" data-count="150" data-suffix="+">0</strong><span>אירועים מופקים</span></li>
+        <li><strong class="foil" data-count="10">0</strong><span>שנות ניסיון</span></li>
+        <li><strong class="foil" data-count="100" data-suffix="%">0</strong><span>התאמה אישית</span></li>
       </ul>
     </div>
   </div>
 </section>
 
+<!-- ─────────────  SERVICES  ───────────── -->
 <section class="services" id="services">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow reveal" data-reveal><b>03</b>מה כלול</p>
-      <h2 class="reveal" data-reveal>השירותים שלנו</h2>
-    </div>
-    <div class="services-list">
-      <article class="service-row reveal" data-reveal style="--delay:0s">
-        <span class="service-num">01</span>
+  <div class="shell">
+    <header class="sec-head">
+      <p class="eyebrow reveal"><b>03</b><i></i>מה כלול</p>
+      <h2 class="reveal" data-split>השירותים שלנו</h2>
+    </header>
+
+    <div class="rows">
+      <article class="row reveal">
+        <span class="row-ghost" aria-hidden="true">01</span>
+        <span class="row-num">01</span>
         <h3>עיצוב ותפאורה</h3>
-        <p>עיצוב חלל מלא הכולל בדים, כריות, פנסים, שטיחים ופרטי נוי בסגנון מסורתי-מודרני.</p>
+        <p>עיצוב חלל מלא הכולל בדים, כריות, פנסים, שטיחים ופרטי נוי בסגנון מסורתי־מודרני.</p>
+        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-boteh"/></svg>
       </article>
-      <article class="service-row reveal" data-reveal style="--delay:.05s">
-        <span class="service-num">02</span>
+      <article class="row reveal">
+        <span class="row-ghost" aria-hidden="true">02</span>
+        <span class="row-num">02</span>
         <h3>קונספט אישי</h3>
         <p>בניית קונספט צבעוני וייחודי המותאם לסיפור המשפחה ולטעם האישי שלכם.</p>
+        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
       </article>
-      <article class="service-row reveal" data-reveal style="--delay:.1s">
-        <span class="service-num">03</span>
+      <article class="row reveal">
+        <span class="row-ghost" aria-hidden="true">03</span>
+        <span class="row-num">03</span>
         <h3>קייטרינג ומתוקים</h3>
         <p>עמדות פירות, מתוקים מסורתיים ותה בהתאמה מלאה לאווירת האירוע.</p>
+        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-vine"/></svg>
       </article>
-      <article class="service-row reveal" data-reveal style="--delay:.15s">
-        <span class="service-num">04</span>
+      <article class="row reveal">
+        <span class="row-ghost" aria-hidden="true">04</span>
+        <span class="row-num">04</span>
         <h3>הפקה מלאה באירוע</h3>
-        <p>ניהול לוגיסטי, תיאום ספקים וליווי צמוד ביום האירוע - כדי שתהיו נוכחים ברגע, לא בפרטים.</p>
+        <p>ניהול לוגיסטי, תיאום ספקים וליווי צמוד ביום האירוע — כדי שתהיו נוכחים ברגע, לא בפרטים.</p>
+        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-mandala"/></svg>
       </article>
-      <article class="service-row reveal" data-reveal style="--delay:.2s">
-        <span class="service-num">05</span>
+      <article class="row reveal">
+        <span class="row-ghost" aria-hidden="true">05</span>
+        <span class="row-num">05</span>
         <h3>תאורה ואווירה</h3>
         <p>תכנון תאורה שמדגיש כל פינה ויוצר אווירה חמה, קסומה ומיוחדת.</p>
+        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
       </article>
-      <article class="service-row reveal" data-reveal style="--delay:.25s">
-        <span class="service-num">06</span>
+      <article class="row reveal">
+        <span class="row-ghost" aria-hidden="true">06</span>
+        <span class="row-num">06</span>
         <h3>ליווי אישי מהיום הראשון</h3>
         <p>פגישת ייעוץ, הצעת עיצוב מותאמת, ותיאום מלא עד לרגע האירוע עצמו.</p>
+        <svg class="row-orn" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-boteh"/></svg>
       </article>
     </div>
   </div>
 </section>
 
+<!-- ─────────────  GALLERY  ───────────── -->
 <section class="gallery" id="gallery">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow reveal" data-reveal><b>04</b>עבודות נבחרות</p>
-      <h2 class="reveal" data-reveal>גלריה</h2>
-    </div>
-    <div class="gallery-grid">
-      <figure class="gallery-item tall reveal" data-reveal style="--delay:0s">
-        <span class="plate plate-a"><svg class="motif-svg" viewBox="0 0 400 400"><use href="#motif"/></svg></span>
+  <div class="shell">
+    <header class="sec-head">
+      <p class="eyebrow reveal"><b>04</b><i></i>עבודות נבחרות</p>
+      <h2 class="reveal" data-split>גלריה</h2>
+    </header>
+
+    <div class="plates" id="plates">
+      <figure class="plate tall reveal">
+        <button class="plate-face" type="button" data-motif="orn-mandala" data-tone="a" data-title="תפאורה ועיצוב חלל" data-index="01">
+          <span class="plate-bg tone-a"></span>
+          <span class="plate-pat pat-girih"></span>
+          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-mandala"/></svg></span>
+          <span class="plate-sheen"></span>
+          <span class="plate-edge"></span>
+          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
+        </button>
         <figcaption><b>01</b> תפאורה ועיצוב חלל</figcaption>
       </figure>
-      <figure class="gallery-item reveal" data-reveal style="--delay:.06s">
-        <span class="plate plate-b"><svg class="motif-svg motif-flip" viewBox="0 0 400 400"><use href="#motif"/></svg></span>
+
+      <figure class="plate reveal" style="--d:.06s">
+        <button class="plate-face" type="button" data-motif="orn-boteh" data-tone="b" data-title="שולחנות ופרטי נוי" data-index="02">
+          <span class="plate-bg tone-b"></span>
+          <span class="plate-pat pat-ogee"></span>
+          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-boteh"/></svg></span>
+          <span class="plate-sheen"></span>
+          <span class="plate-edge"></span>
+          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
+        </button>
         <figcaption><b>02</b> שולחנות ופרטי נוי</figcaption>
       </figure>
-      <figure class="gallery-item reveal" data-reveal style="--delay:.12s">
-        <span class="plate plate-a"><svg class="motif-svg" viewBox="0 0 400 400"><use href="#motif"/></svg></span>
+
+      <figure class="plate reveal" style="--d:.12s">
+        <button class="plate-face" type="button" data-motif="orn-rosette" data-tone="a" data-title="תאורה אווירתית" data-index="03">
+          <span class="plate-bg tone-a"></span>
+          <span class="plate-pat pat-scallop"></span>
+          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-rosette"/></svg></span>
+          <span class="plate-sheen"></span>
+          <span class="plate-edge"></span>
+          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
+        </button>
         <figcaption><b>03</b> תאורה אווירתית</figcaption>
       </figure>
-      <figure class="gallery-item tall reveal" data-reveal style="--delay:.18s">
-        <span class="plate plate-b"><svg class="motif-svg motif-flip" viewBox="0 0 400 400"><use href="#motif"/></svg></span>
+
+      <figure class="plate tall reveal" style="--d:.18s">
+        <button class="plate-face" type="button" data-motif="orn-vine" data-tone="b" data-title="קונספט צבעוני" data-index="04">
+          <span class="plate-bg tone-b"></span>
+          <span class="plate-pat pat-girih"></span>
+          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-vine"/></svg></span>
+          <span class="plate-sheen"></span>
+          <span class="plate-edge"></span>
+          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
+        </button>
         <figcaption><b>04</b> קונספט צבעוני</figcaption>
       </figure>
-      <figure class="gallery-item tall reveal" data-reveal style="--delay:.24s">
-        <span class="plate plate-a"><svg class="motif-svg" viewBox="0 0 400 400"><use href="#motif"/></svg></span>
+
+      <figure class="plate tall reveal" style="--d:.24s">
+        <button class="plate-face" type="button" data-motif="orn-mandala" data-tone="b" data-title="עמדות קייטרינג" data-index="05">
+          <span class="plate-bg tone-b"></span>
+          <span class="plate-pat pat-ogee"></span>
+          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-mandala"/></svg></span>
+          <span class="plate-sheen"></span>
+          <span class="plate-edge"></span>
+          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
+        </button>
         <figcaption><b>05</b> עמדות קייטרינג</figcaption>
       </figure>
-      <figure class="gallery-item reveal" data-reveal style="--delay:.3s">
-        <span class="plate plate-b"><svg class="motif-svg motif-flip" viewBox="0 0 400 400"><use href="#motif"/></svg></span>
+
+      <figure class="plate reveal" style="--d:.3s">
+        <button class="plate-face" type="button" data-motif="orn-boteh" data-tone="a" data-title="רגעים מהאירוע" data-index="06">
+          <span class="plate-bg tone-a"></span>
+          <span class="plate-pat pat-scallop"></span>
+          <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#orn-boteh"/></svg></span>
+          <span class="plate-sheen"></span>
+          <span class="plate-edge"></span>
+          <span class="plate-zoom" aria-hidden="true">הגדלה</span>
+        </button>
         <figcaption><b>06</b> רגעים מהאירוע</figcaption>
       </figure>
     </div>
-    <p class="gallery-note">* הלוחות בעמוד זה הם placeholder גרפי - יוחלפו בתמונות אמיתיות מהאירועים שלכם.</p>
+
+    <p class="plates-note reveal">הלוחות הם עיצוב אורנמנטלי מקורי — כל אחד מהם מוכן להחלפה בתמונה אמיתית מהאירועים שלכם.</p>
   </div>
 </section>
 
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow reveal" data-reveal><b>05</b>לקוחות ממליצים</p>
-      <h2 class="reveal" data-reveal>מה אומרים עלינו</h2>
-    </div>
-    <div class="testimonial-carousel reveal" data-reveal style="--delay:.1s">
-      <div class="testimonial-track" id="testimonialTrack">
-        <blockquote class="testimonial is-active">
-          <p>האירוע היה מעבר לכל דמיון - כל פרט חושב עד הסוף. תודה שהפכתם את היום שלנו לקסום כל כך.</p>
+<!-- ─────────────  TESTIMONIALS  ───────────── -->
+<section class="quotes" id="testimonials">
+  <svg class="quotes-orn" viewBox="0 0 400 400" aria-hidden="true" data-parallax="0.025"><use href="#orn-mandala"/></svg>
+  <div class="shell">
+    <header class="sec-head">
+      <p class="eyebrow reveal"><b>05</b><i></i>לקוחות ממליצים</p>
+      <h2 class="reveal" data-split>מה אומרים עלינו</h2>
+    </header>
+
+    <div class="quote-box reveal">
+      <div class="quote-track" id="quoteTrack">
+        <blockquote class="quote is-on">
+          <p>האירוע היה מעבר לכל דמיון — כל פרט חושב עד הסוף. תודה שהפכתם את היום שלנו לקסום כל כך.</p>
           <cite>משפחת כהן</cite>
         </blockquote>
-        <blockquote class="testimonial">
-          <p>מקצועיות, טעם עיצובי מדהים וזמינות מלאה לאורך כל התהליך. ממליצים בחום!</p>
+        <blockquote class="quote">
+          <p>מקצועיות, טעם עיצובי מדהים וזמינות מלאה לאורך כל התהליך. ממליצים בחום.</p>
           <cite>משפחת לוי</cite>
         </blockquote>
-        <blockquote class="testimonial">
+        <blockquote class="quote">
           <p>הצוות הבין בדיוק את החלום שלנו והפך אותו למציאות. אירוע שכל האורחים עדיין מדברים עליו.</p>
           <cite>משפחת אזולאי</cite>
         </blockquote>
       </div>
-      <div class="testimonial-dots" id="testimonialDots"></div>
+      <div class="quote-nav" id="quoteNav" role="tablist" aria-label="בחירת המלצה"></div>
     </div>
   </div>
+  <div class="grain" aria-hidden="true"></div>
 </section>
 
+<!-- ─────────────  CONTACT  ───────────── -->
 <section class="contact" id="contact">
-  <div class="container contact-grid">
-    <div class="contact-info">
-      <p class="eyebrow reveal" data-reveal><b>06</b>בואו נתחיל לתכנן</p>
-      <h2 class="reveal" data-reveal>נדבר על האירוע שלכם?</h2>
-      <p class="reveal" data-reveal style="--delay:.08s">השאירו פרטים ונחזור אליכם תוך זמן קצר, או צרו קשר ישירות באחת מהדרכים הבאות.</p>
-      <ul class="contact-list reveal" data-reveal style="--delay:.16s">
-        <li><span>טלפון</span> <a href="tel:+972500000000" dir="ltr">050-000-0000</a></li>
-        <li><span>וואטסאפ</span> <a href="https://wa.me/972500000000" target="_blank" rel="noopener">שליחת הודעה</a></li>
-        <li><span>אימייל</span> <a href="mailto:info@example.com">info@example.com</a></li>
-        <li><span>אינסטגרם</span> <a href="https://instagram.com" target="_blank" rel="noopener">@your_business</a></li>
+  <div class="shell contact-grid">
+    <div class="contact-side">
+      <p class="eyebrow reveal"><b>06</b><i></i>בואו נתחיל לתכנן</p>
+      <h2 class="reveal" data-split>נדבר על האירוע שלכם?</h2>
+      <p class="reveal" style="--d:.08s">השאירו פרטים ונחזור אליכם תוך זמן קצר, או צרו קשר ישירות באחת מהדרכים הבאות.</p>
+      <ul class="channels reveal" style="--d:.16s">
+        <li><span>טלפון</span><a href="tel:+972500000000" dir="ltr">050-000-0000</a></li>
+        <li><span>וואטסאפ</span><a href="https://wa.me/972500000000" target="_blank" rel="noopener">שליחת הודעה</a></li>
+        <li><span>אימייל</span><a href="mailto:info@example.com" dir="ltr">info@example.com</a></li>
+        <li><span>אינסטגרם</span><a href="https://instagram.com" target="_blank" rel="noopener" dir="ltr">@your_business</a></li>
       </ul>
     </div>
-    <form class="contact-form reveal" data-reveal style="--delay:.1s" id="contactForm">
-      <div class="form-row">
-        <label for="name">שם מלא</label>
-        <input type="text" id="name" name="name" required>
+
+    <form class="form reveal" style="--d:.1s" id="form" novalidate>
+      <div class="field">
+        <input type="text" id="f-name" name="name" placeholder=" " required autocomplete="name">
+        <label for="f-name">שם מלא</label>
+        <span class="field-line"></span>
+        <span class="field-err" data-for="f-name"></span>
       </div>
-      <div class="form-row">
-        <label for="phone">טלפון</label>
-        <input type="tel" id="phone" name="phone" required>
+      <div class="field">
+        <input type="tel" id="f-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel">
+        <label for="f-phone">טלפון</label>
+        <span class="field-line"></span>
+        <span class="field-err" data-for="f-phone"></span>
       </div>
-      <div class="form-row">
-        <label for="date">תאריך משוער לאירוע</label>
-        <input type="date" id="date" name="date">
+      <div class="field">
+        <input type="date" id="f-date" name="date" placeholder=" ">
+        <label for="f-date" class="is-lifted">תאריך משוער לאירוע</label>
+        <span class="field-line"></span>
       </div>
-      <div class="form-row">
-        <label for="message">ספרו לנו קצת על האירוע</label>
-        <textarea id="message" name="message" rows="3"></textarea>
+      <div class="field">
+        <textarea id="f-msg" name="message" rows="3" placeholder=" "></textarea>
+        <label for="f-msg">ספרו לנו קצת על האירוע</label>
+        <span class="field-line"></span>
       </div>
-      <button type="submit" class="btn btn-primary form-submit magnetic"><span>שליחת פנייה</span></button>
-      <p class="form-note" id="formNote" role="status"></p>
+      <button type="submit" class="btn btn-gold form-send magnetic"><span>שליחת פנייה</span></button>
+      <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> שם העסק - הפקת חינות יוקרתיות</p>
-    <a href="#top" class="back-to-top">חזרה למעלה ↑</a>
+</main>
+
+<footer class="footer">
+  <div class="shell footer-inner">
+    <svg class="footer-mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
+    <p>© <span id="year"></span> שם העסק — הפקת חינות יוקרתיות</p>
+    <a href="#top" class="to-top">חזרה למעלה ↑</a>
   </div>
 </footer>
 
-<button class="scroll-top-btn" id="scrollTopBtn" aria-label="חזרה לראש העמוד">↑</button>
+<!-- ─────────────  LIGHTBOX  ───────────── -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="תצוגה מוגדלת" hidden>
+  <button class="lb-close" id="lbClose" aria-label="סגירה">✕</button>
+  <button class="lb-prev" id="lbPrev" aria-label="הקודם">←</button>
+  <button class="lb-next" id="lbNext" aria-label="הבא">→</button>
+  <figure class="lb-stage">
+    <span class="lb-plate" id="lbPlate">
+      <span class="lb-bg" id="lbBg"></span>
+      <span class="lb-pat" id="lbPat"></span>
+      <span class="lb-motif"><svg viewBox="0 0 400 400"><use href="#orn-mandala" id="lbUse"/></svg></span>
+      <span class="lb-edge"></span>
+    </span>
+    <figcaption class="lb-cap"><b id="lbIndex">01</b> <span id="lbTitle"></span></figcaption>
+  </figure>
+</div>
+
+<button class="totop-btn" id="toTop" aria-label="חזרה לראש העמוד">↑</button>
 
 <script src="script.js"></script>
 </body>
