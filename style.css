@@ -811,6 +811,7 @@ body:not(.is-loading) .hero .fade { opacity: 1; transform: none; }
     linear-gradient(to left, rgba(8,6,5,.93) 6%, rgba(8,6,5,.70) 40%, rgba(8,6,5,.34) 100%);
 }
 .hero-photo.has-photo ~ .hero-mandala { opacity: .05; }
+.hero-photo video.photo { background: var(--void); }
 
 /* about panel */
 .panel.has-photo .panel-motif,
@@ -831,16 +832,40 @@ body:not(.is-loading) .hero .fade { opacity: 1; transform: none; }
 .plate-face.has-photo .plate-edge,
 .plate-face.has-photo .plate-zoom { z-index: 3; }
 
+/* video: mounted elements also get .has-photo (shares all the rules above —
+   ornament hides, sheen/edge/zoom stay on top); .has-video only adds the
+   video-specific bits below. Playback itself is muted/looped and started on
+   pointerenter by script.js, not autoplay, so six thumbnails never compete
+   for bandwidth or battery at once. */
+.plate-face video.photo { background: #000; }
+.plate-video-badge {
+  position: absolute; z-index: 3; inset: 14px auto auto 14px;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(8,6,5,.55); backdrop-filter: blur(4px);
+  border: 1px solid rgba(220,185,120,.4);
+  color: var(--gold-1); font-size: .68rem;
+  pointer-events: none;
+}
+.plate-video-badge::before { content: "▶"; margin-inline-start: 2px; }
+
 /* lightbox */
 .lb-photo { z-index: 1; overflow: hidden; }
-.lb-plate.has-photo .lb-motif, .lb-plate.has-photo .lb-pat { opacity: 0; }
-.lb-plate.has-photo { width: min(88vw, 1000px); aspect-ratio: auto; }
-.lb-plate.has-photo .lb-photo .photo { position: relative; max-height: 74vh; height: auto; width: 100%; object-fit: contain; }
-.lb-plate.has-photo .lb-photo { position: relative; inset: auto; }
+.lb-plate.has-photo .lb-motif, .lb-plate.has-photo .lb-pat,
+.lb-plate.has-video .lb-motif, .lb-plate.has-video .lb-pat { opacity: 0; }
+.lb-plate.has-photo, .lb-plate.has-video { width: min(88vw, 1000px); aspect-ratio: auto; }
+.lb-plate.has-photo .lb-photo .photo,
+.lb-plate.has-video .lb-photo .photo {
+  position: relative; max-height: 74vh; height: auto; width: 100%; object-fit: contain;
+}
+.lb-plate.has-photo .lb-photo, .lb-plate.has-video .lb-photo { position: relative; inset: auto; }
+.lb-plate.has-video video.photo { background: #000; border-radius: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-photo .photo { animation: none !important; transform: none !important; }
   .plate-face:hover .photo { transform: none !important; }
+  /* thumbnail hover-preview is itself motion; script.js also gates the
+     pointerenter/leave play() calls behind the same media query */
 }
 
 /* ═══════════════  RESPONSIVE  ═══════════════ */

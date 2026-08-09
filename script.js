@@ -36,9 +36,11 @@
   }
   $$('[data-split]').forEach(split);
 
-  /* ─────────  PHOTOGRAPHY  ─────────
-     Preload first and only insert on success, so a missing file degrades to the
-     ornamental plate underneath instead of flashing a broken-image icon. */
+  /* ─────────  PHOTOGRAPHY & VIDEO  ─────────
+     Both preload/probe first and only insert on success, so a missing file
+     degrades to the ornamental plate underneath instead of a broken-image icon
+     or a <video> stuck showing nothing. Video is tried before the photo on any
+     slot that offers both — if it resolves, the photo probe is skipped. */
   function mountPhoto(host, src, alt) {
     if (!host || !src) return;
     const probe = new Image();
@@ -55,9 +57,67 @@
     probe.src = src;
   }
 
-  $$('[data-photo]').forEach((el) => {
-    mountPhoto(el, el.dataset.photo, el.dataset.title || '');
+  function mountVideo(host, src, opts) {
+    if (!host || !src) return Promise.resolve(false);
+    opts = opts || {};
+    return new Promise((resolve) => {
+      const probe = document.createElement('video');
+      probe.preload = 'metadata';
+      probe.muted = true;
+      probe.onloadedmetadata = () => {
+        const v = document.createElement('video');
+        v.src = src;
+        v.className = 'photo';
+        v.muted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.setAttribute('muted', '');
+        v.setAttribute('playsinline', '');
+        v.preload = opts.eager ? 'auto' : 'metadata';
+        if (opts.autoplay && !reduce) {
+          v.autoplay = true;
+          v.play().catch(() => {}); // autoplay can still be blocked; thumbnail poster stays fine either way
+        }
+        host.prepend(v);
+        host.classList.add('has-video', 'has-photo'); // has-photo: reuse "media covers the ornament" styling
+        if (host.classList.contains('plate-face')) {
+          const badge = document.createElement('span');
+          badge.className = 'plate-video-badge';
+          badge.setAttribute('aria-hidden', 'true');
+          host.appendChild(badge);
+        }
+        resolve(v);
+      };
+      probe.onerror = () => resolve(false);
+      probe.src = src;
+    });
+  }
+
+  $$('[data-video], [data-photo]').forEach((el) => {
+    const isHero = el.classList.contains('hero-photo');
+    if (el.dataset.video) {
+      mountVideo(el, el.dataset.video, { autoplay: isHero, eager: isHero }).then((v) => {
+        if (!v && el.dataset.photo) mountPhoto(el, el.dataset.photo, el.dataset.title || '');
+      });
+    } else if (el.dataset.photo) {
+      mountPhoto(el, el.dataset.photo, el.dataset.title || '');
+    }
   });
+
+  /* gallery thumbnails: play the muted loop only on hover, so six clips never
+     autoplay together. No-op on touch devices — reduced motion. */
+  if (fine && !reduce) {
+    $$('.plate-face').forEach((face) => {
+      face.addEventListener('pointerenter', () => {
+        const v = face.querySelector('video.photo');
+        if (v) v.play().catch(() => {});
+      });
+      face.addEventListener('pointerleave', () => {
+        const v = face.querySelector('video.photo');
+        if (v) { v.pause(); v.currentTime = 0; }
+      });
+    });
+  }
 
   /* ─────────  INTRO  ───────── */
   const intro = $('#intro');
@@ -298,14 +358,24 @@
       lbTitle.textContent = f.dataset.title;
       lbIndex.textContent = f.dataset.index;
 
-      // show the real photo when this plate has one mounted
+      // show the real photo or video when this plate has one mounted
       const lbPlate = $('#lbPlate'), lbPhoto = $('#lbPhoto');
+      const playing = lbPhoto.querySelector('video');
+      if (playing) playing.pause(); // stop before the node is discarded
       lbPhoto.textContent = '';
-      lbPlate.classList.remove('has-photo');
-      const src = f.classList.contains('has-photo') ? f.dataset.photo : null;
-      if (src) {
+      lbPlate.classList.remove('has-photo', 'has-video');
+
+      if (f.classList.contains('has-video')) {
+        const v = document.createElement('video');
+        v.src = f.dataset.video; v.className = 'photo';
+        v.controls = true; v.muted = true; v.loop = true; v.playsInline = true;
+        v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
+        v.play().catch(() => {});
+        lbPhoto.appendChild(v);
+        lbPlate.classList.add('has-video', 'has-photo');
+      } else if (f.classList.contains('has-photo')) {
         const img = document.createElement('img');
-        img.src = src; img.alt = f.dataset.title || ''; img.className = 'photo';
+        img.src = f.dataset.photo; img.alt = f.dataset.title || ''; img.className = 'photo';
         lbPhoto.appendChild(img);
         lbPlate.classList.add('has-photo');
       }
@@ -322,6 +392,8 @@
     function close() {
       lb.classList.remove('is-on');
       document.body.classList.remove('lb-open');
+      const v = $('#lbPhoto video');
+      if (v) v.pause(); // stop immediately rather than let it play through the fade-out
       setTimeout(() => { lb.hidden = true; }, 420);
       if (lastFocus) lastFocus.focus();
     }
