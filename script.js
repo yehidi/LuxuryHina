@@ -256,8 +256,8 @@
     $('#galleryEyebrow').textContent = g.eyebrow;
     $('#galleryHeading').textContent = g.heading;
     $('#plates').innerHTML = g.items.map((it, i) => `
-      <figure class="plate${it.tall ? ' tall' : ''} reveal" style="--d:${(i * 0.06).toFixed(2)}s">
-        <button class="plate-face" type="button" data-motif="${esc(it.motif)}" data-tone="${esc(it.tone)}" data-title="${esc(it.title)}" data-index="${pad2(i + 1)}"${it.video ? ` data-video="${esc(it.video)}"` : ''}${it.photo ? ` data-photo="${esc(it.photo)}"` : ''}>
+      <figure class="plate">
+        <button class="plate-face" type="button" data-motif="${esc(it.motif)}" data-tone="${esc(it.tone)}" data-title="${esc(it.title)}" data-index="${pad2(i + 1)}" aria-label="${esc(it.title)} — הגדלה לתצוגה מלאה"${it.video ? ` data-video="${esc(it.video)}"` : ''}${it.photo ? ` data-photo="${esc(it.photo)}"` : ''}>
           <span class="plate-bg tone-${esc(it.tone)}"></span>
           <span class="plate-pat ${esc(it.pattern)}"></span>
           <span class="plate-motif"><svg viewBox="0 0 400 400"><use href="#${esc(it.motif)}"/></svg></span>
@@ -682,6 +682,57 @@
     track.addEventListener('mouseleave', start);
   }
 
+  /* ─────────  GALLERY CAROUSEL  ─────────
+     A native horizontally-scrolling, scroll-snapped track — touch/trackpad
+     swipe and the arrow buttons all just move its scrollLeft, so there's
+     nothing to keep in sync by hand. RTL flips the sign of scrollLeft in
+     Chromium (0 at the start, negative toward the end), so every read of
+     it goes through Math.abs() rather than assuming a direction. */
+  function initGalleryCarousel() {
+    const track = $('#plates');
+    const carousel = track && track.closest('.gallery-carousel');
+    const prevBtn = carousel && $('.gal-prev', carousel);
+    const nextBtn = carousel && $('.gal-next', carousel);
+    const fill = $('#galProgress');
+    if (!track || !track.children.length) return;
+
+    function cardStep() {
+      const card = track.querySelector('.plate');
+      if (!card) return track.clientWidth;
+      const gap = parseFloat(getComputedStyle(track).columnGap || 20);
+      return card.getBoundingClientRect().width + gap;
+    }
+    function maxScroll() { return Math.max(0, track.scrollWidth - track.clientWidth); }
+    function ratio() {
+      const max = maxScroll();
+      return max > 0 ? Math.min(1, Math.abs(track.scrollLeft) / max) : 0;
+    }
+    function update() {
+      const r = ratio();
+      const visible = Math.min(1, track.clientWidth / track.scrollWidth || 1);
+      if (fill) {
+        fill.style.width = (visible * 100) + '%';
+        fill.style.insetInlineStart = (r * (100 - visible * 100)) + '%';
+      }
+      if (prevBtn) prevBtn.disabled = r <= 0.01;
+      if (nextBtn) nextBtn.disabled = r >= 0.99;
+    }
+    function go(dir) {
+      // dir: +1 = next (forward through the set = visually leftward in RTL)
+      track.scrollBy({ left: -dir * cardStep(), behavior: reduce ? 'auto' : 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => go(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => go(1));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: cardStep(), behavior: reduce ? 'auto' : 'smooth' }); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -cardStep(), behavior: reduce ? 'auto' : 'smooth' }); }
+    });
+    track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    addEventListener('resize', update);
+    update();
+  }
+
   /* ─────────  FLOATING WHATSAPP  ─────────
      Retire the bubble once the footer is on screen: it would otherwise sit
      on top of the footer's own links, and the footer already offers
@@ -864,6 +915,7 @@
     initParallax();
     initCounters();
     initCarousel();
+    initGalleryCarousel();
     initWaFloat();
     initFaq();
     initLightbox();

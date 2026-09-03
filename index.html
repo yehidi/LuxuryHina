@@ -445,7 +445,16 @@
       <h2 class="reveal" id="galleryHeading" data-split>גלריה</h2>
     </header>
 
-    <div class="plates" id="plates"></div>
+    <div class="gallery-carousel">
+      <button class="gal-nav gal-prev" type="button" data-gal="prev" aria-label="העבודה הקודמת">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="plates" id="plates" tabindex="0" role="region" aria-roledescription="קרוסלה" aria-label="גלריית עבודות נבחרות"></div>
+      <button class="gal-nav gal-next" type="button" data-gal="next" aria-label="העבודה הבאה">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="gal-progress" aria-hidden="true"><span class="gal-progress-fill" id="galProgress"></span></div>
 
     <div class="gallery-foot reveal" id="galleryNote"></div>
   </div>

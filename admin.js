@@ -654,11 +654,10 @@
         { key: 'title', label: 'כותרת', type: 'text' },
         { key: 'motif', label: 'עיטור', type: 'select', options: MOTIFS },
         { key: 'pattern', label: 'דוגמת רקע', type: 'select', options: PATTERNS },
-        { key: 'tone', label: 'גוון', type: 'select', options: [['a', 'א'], ['b', 'ב']] },
-        { key: 'tall', label: 'לוח גבוה (תופס יותר גובה בגריד)', type: 'checkbox' }
+        { key: 'tone', label: 'גוון', type: 'select', options: [['a', 'א'], ['b', 'ב']] }
       ],
       mediaFields: [{ key: 'photo', kind: 'image', label: 'תמונה' }, { key: 'video', kind: 'video', label: 'סרטון (מתנגן בריחוף עכבר)' }],
-      newItem: { title: 'עבודה חדשה', photo: '', video: '', tall: false, motif: 'orn-mandala', tone: 'a', pattern: 'pat-girih' }
+      newItem: { title: 'עבודה חדשה', photo: '', video: '', motif: 'orn-mandala', tone: 'a', pattern: 'pat-girih' }
     });
   }
 
