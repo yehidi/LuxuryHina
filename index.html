@@ -9,6 +9,7 @@
 <!-- Applies the last-known theme before first paint, so returning visitors
      never see a flash of the wrong theme while content.json is fetched. -->
 <script>try{document.documentElement.setAttribute('data-theme', localStorage.getItem('lh-theme') || 'candlelit');}catch(e){}</script>
+<script src="a11y.js"></script>
 <link rel="canonical" href="https://yehidi.github.io/LuxuryHina/">
 
 <!-- Share card: this is what appears when the link is sent in WhatsApp -->
@@ -43,6 +44,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="is-loading">
+
+<a href="#main" class="skip-link">דלגו לתוכן הראשי</a>
 
 <!-- ─────────────  ORNAMENT LIBRARY  ───────────── -->
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="orn-defs" aria-hidden="true" focusable="false"><defs>
@@ -354,7 +357,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
 
 <!-- ─────────────  HERO  ───────────── -->
 <section class="hero" id="top">
@@ -534,7 +537,10 @@
     <svg class="footer-mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#orn-rosette"/></svg>
     <p>© <span id="year"></span> <span id="footerCopyright">LuxuryHina — הפקת חינות יוקרתיות</span></p>
     <ul class="social" aria-label="הרשתות החברתיות שלנו" id="footerSocial"></ul>
-    <a href="#top" class="to-top">חזרה למעלה ↑</a>
+    <div class="footer-links">
+      <a href="accessibility.html" class="to-top">הצהרת נגישות</a>
+      <a href="#top" class="to-top">חזרה למעלה ↑</a>
+    </div>
   </div>
 </footer>
 

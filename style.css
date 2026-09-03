@@ -175,6 +175,107 @@
   --wine-glow-rgb: 184, 33, 95;
 }
 
+/* ═══════════════  ACCESSIBILITY TOOLBAR  ═══════════════
+   User-invoked, persisted overrides — independent of and layered on top
+   of whichever data-theme is active, and separate from the OS-level
+   prefers-reduced-motion support the rest of the site already respects. */
+:root[data-a11y-contrast="high"] {
+  --void: #000; --ink: #000; --ink-raised: #000; --ink-lift: #050505;
+  --wine: #000; --wine-glow: #000;
+  --gold-1: #ffe600; --gold-2: #ffe600; --gold-3: #ffe600; --gold-4: #ffe600;
+  --cream: #fff;
+  --cream-dim: #fff;
+  --cream-faint: #fff;
+  --hair: #fff;
+  --hair-soft: rgba(255,255,255,.5);
+  --void-rgb: 0, 0, 0;
+  --ink-rgb: 0, 0, 0;
+  --gold-1-rgb: 255, 230, 0;
+  --gold-2-rgb: 255, 230, 0;
+  --gold-3-rgb: 255, 230, 0;
+  --cream-rgb: 255, 255, 255;
+  --wine-glow-rgb: 0, 0, 0;
+}
+html[data-a11y-contrast="high"] img,
+html[data-a11y-contrast="high"] video,
+html[data-a11y-contrast="high"] .photo { filter: grayscale(1) contrast(1.2) !important; }
+html[data-a11y-contrast="high"] .foil { -webkit-text-fill-color: var(--gold-2); background: none; animation: none; }
+html[data-a11y-contrast="high"] .plate-pat,
+html[data-a11y-contrast="high"] .lb-pat,
+html[data-a11y-contrast="high"] .panel-pattern,
+html[data-a11y-contrast="high"] .bokeh,
+html[data-a11y-contrast="high"] .grain,
+html[data-a11y-contrast="high"] .hero-mandala,
+html[data-a11y-contrast="high"] .quotes-orn { display: none !important; }
+
+html[data-a11y-motion="reduce"] *,
+html[data-a11y-motion="reduce"] *::before,
+html[data-a11y-motion="reduce"] *::after {
+  animation-duration: .001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .001ms !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-a11y-underline="on"] a { text-decoration: underline !important; text-underline-offset: 3px; }
+
+html[data-a11y-font="plain"] * { font-family: var(--f-body) !important; }
+
+html { font-size: calc(100% * var(--a11y-scale, 1)); }
+
+.a11y-fab {
+  position: fixed; z-index: 850; bottom: 26px; inset-inline-start: 26px;
+  width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--ink-raised); border: 1px solid var(--hair);
+  color: var(--gold-2); cursor: pointer;
+  box-shadow: 0 10px 26px rgba(var(--void-rgb),.4);
+  transition: transform .35s var(--ease), border-color .35s var(--ease);
+}
+.a11y-fab:hover { transform: translateY(-3px); border-color: var(--gold-2); }
+.a11y-fab svg { width: 26px; height: 26px; }
+
+.a11y-panel {
+  position: fixed; z-index: 900; bottom: 88px; inset-inline-start: 26px;
+  width: min(320px, calc(100vw - 40px));
+  background: var(--ink-raised); border: 1px solid var(--hair);
+  border-radius: 16px; padding: 18px;
+  box-shadow: 0 20px 60px rgba(var(--void-rgb),.5);
+}
+.a11y-panel[hidden] { display: none; }
+.a11y-panel h2 { font-size: 1.05rem; margin: 0 0 4px; }
+.a11y-panel p.a11y-sub { margin: 0 0 14px; font-size: .78rem; color: var(--cream-faint); }
+.a11y-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 0; border-top: 1px solid var(--hair-soft);
+}
+.a11y-row:first-of-type { border-top: 0; }
+.a11y-row span { font-size: .86rem; color: var(--cream); }
+.a11y-btns { display: flex; gap: 6px; }
+.a11y-btn {
+  min-width: 36px; height: 34px; padding: 0 10px;
+  border-radius: 8px; border: 1px solid var(--hair);
+  background: var(--ink); color: var(--cream);
+  font-size: .8rem; cursor: pointer;
+  transition: border-color .25s, color .25s, background .25s;
+}
+.a11y-btn:hover { border-color: var(--gold-2); color: var(--gold-2); }
+.a11y-btn[aria-pressed="true"] { background: var(--gold-2); border-color: var(--gold-2); color: var(--ink); }
+.a11y-reset {
+  width: 100%; margin-top: 14px; padding: 10px; border-radius: 8px;
+  border: 1px solid var(--hair); background: none; color: var(--cream-faint);
+  font-size: .8rem; cursor: pointer; transition: border-color .25s, color .25s;
+}
+.a11y-reset:hover { border-color: var(--gold-2); color: var(--gold-2); }
+.a11y-panel-foot { margin-top: 12px; text-align: center; }
+.a11y-panel-foot a { font-size: .74rem; color: var(--gold-3); }
+
+@media (max-width: 520px) {
+  .a11y-fab { width: 46px; height: 46px; bottom: 18px; inset-inline-start: 18px; }
+  .a11y-fab svg { width: 22px; height: 22px; }
+  .a11y-panel { bottom: 74px; inset-inline-start: 18px; }
+}
+
 * { box-sizing: border-box; }
 
 html {
@@ -214,6 +315,17 @@ body.lb-open { overflow: hidden; }
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+.skip-link {
+  position: fixed; z-index: 10000;
+  top: -100px; inset-inline-start: 16px;
+  background: var(--gold-2); color: var(--ink);
+  font-family: var(--f-body); font-weight: 500; font-size: .9rem;
+  padding: 12px 22px; border-radius: 8px;
+  text-decoration: none;
+  transition: top .25s var(--ease);
+}
+.skip-link:focus { top: 16px; }
 
 /* ═══════════════  TYPE  ═══════════════ */
 h1, h2, h3 {
@@ -837,10 +949,11 @@ body:not(.is-loading) .hero .fade { opacity: 1; transform: none; }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; font-size: .8rem; color: var(--cream-faint); }
 .footer-inner p { margin: 0; color: inherit; }
 .footer-mark { width: 26px; height: 26px; color: var(--gold-3); }
+.footer-links { display: flex; align-items: center; gap: 18px; }
 .to-top { color: var(--gold-2); text-decoration: none; }
 
 .totop-btn {
-  position: fixed; z-index: 700; bottom: 26px; inset-inline-start: 26px;
+  position: fixed; z-index: 700; bottom: 92px; inset-inline-start: 26px;
   width: 46px; height: 46px; border-radius: 50%;
   background: rgba(var(--ink-rgb),.8); backdrop-filter: blur(8px);
   border: 1px solid var(--hair); color: var(--gold-2);
@@ -1184,7 +1297,7 @@ body:not(.is-loading) .hero .fade { opacity: 1; transform: none; }
   .row-ghost { font-size: 5rem; opacity: .022; }
   .row-orn { display: none; }
   .stats li { padding-inline: 18px; }
-  .totop-btn { bottom: 18px; inset-inline-start: 18px; width: 42px; height: 42px; }
+  .totop-btn { bottom: 76px; inset-inline-start: 18px; width: 42px; height: 42px; }
   .lb-prev, .lb-next { top: auto; bottom: 22px; transform: none; width: 46px; height: 46px; }
   .lb-prev { inset-inline-end: calc(50% - 56px); }
   .lb-next { inset-inline-start: calc(50% - 56px); }

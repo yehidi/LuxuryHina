@@ -214,7 +214,11 @@
     $('#aboutStats').innerHTML = a.stats.map((s) =>
       `<li><strong class="foil" data-count="${Number(s.value) || 0}" data-suffix="${esc(s.suffix || '')}">0</strong><span>${esc(s.label)}</span></li>`
     ).join('');
-    if (a.photo) $('#aboutPanel').dataset.photo = a.photo;
+    if (a.photo) {
+      const panel = $('#aboutPanel');
+      panel.dataset.photo = a.photo;
+      panel.dataset.title = `אירוע חינה שהפיקה ${content.business.brandFirst}${content.business.brandLast}`;
+    }
   }
 
   function renderServices(content) {
