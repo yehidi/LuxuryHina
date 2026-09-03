@@ -819,6 +819,7 @@
       const res = rules[id](input.value);
       const ok = res === true;
       field.classList.toggle('has-err', !ok);
+      input.setAttribute('aria-invalid', String(!ok));
       if (err) err.textContent = ok ? '' : res;
       return ok;
     }

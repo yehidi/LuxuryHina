@@ -492,16 +492,16 @@
 
     <form class="form reveal" style="--d:.1s" id="form" novalidate>
       <div class="field">
-        <input type="text" id="f-name" name="name" placeholder=" " required autocomplete="name">
+        <input type="text" id="f-name" name="name" placeholder=" " required autocomplete="name" aria-describedby="err-f-name">
         <label for="f-name">שם מלא</label>
         <span class="field-line"></span>
-        <span class="field-err" data-for="f-name"></span>
+        <span class="field-err" id="err-f-name" data-for="f-name" role="alert"></span>
       </div>
       <div class="field">
-        <input type="tel" id="f-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel">
+        <input type="tel" id="f-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="err-f-phone">
         <label for="f-phone">טלפון</label>
         <span class="field-line"></span>
-        <span class="field-err" data-for="f-phone"></span>
+        <span class="field-err" id="err-f-phone" data-for="f-phone" role="alert"></span>
       </div>
       <div class="field-pair">
         <div class="field">

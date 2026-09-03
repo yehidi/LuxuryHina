@@ -887,13 +887,18 @@ body:not(.is-loading) .hero .fade { opacity: 1; transform: none; }
 .quote p::before { content: "”"; color: var(--gold-3); margin-inline-end: .12em; }
 .quote cite { font-style: normal; font-size: .82rem; letter-spacing: .18em; color: var(--gold-2); }
 
-.quote-nav { display: flex; gap: 12px; margin-top: 40px; }
+.quote-nav { display: flex; gap: 4px; margin-top: 40px; }
 .quote-nav button {
-  width: 30px; height: 2px; padding: 0; border: 0; cursor: pointer;
-  background: rgba(var(--cream-rgb),.2);
+  position: relative;
+  width: 40px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer;
+}
+.quote-nav button::after {
+  content: ""; position: absolute; inset-inline-start: 0; top: 50%;
+  width: 30px; height: 3px; transform: translateY(-50%);
+  background: rgba(var(--cream-rgb),.45);
   transition: background .45s, width .45s var(--ease);
 }
-.quote-nav button.is-on { background: var(--gold-2); width: 52px; }
+.quote-nav button.is-on::after { background: var(--gold-2); width: 100%; }
 
 /* ═══════════════  CONTACT  ═══════════════ */
 .contact { padding-block: clamp(60px, 8vw, 108px); background: var(--ink); }
